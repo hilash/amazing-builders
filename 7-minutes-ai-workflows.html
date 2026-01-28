@@ -211,32 +211,38 @@
             border: none;
         }
         .sponsor {
-            background: rgba(255,255,255,0.15);
+            display: block;
+            background: rgba(255,255,255,0.95);
             padding: 25px;
             border-radius: 15px;
             margin-top: 40px;
             text-align: center;
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .sponsor:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
         .sponsor-label {
             font-size: 0.9rem;
-            opacity: 0.8;
-            margin-bottom: 10px;
-        }
-        .sponsor-name {
-            font-size: 1.5rem;
-            font-weight: bold;
+            opacity: 0.6;
             margin-bottom: 15px;
         }
-        .sponsor-name a {
-            color: white;
-            text-decoration: none;
-        }
-        .sponsor-name a:hover {
-            text-decoration: underline;
+        .sponsor-logo {
+            height: 40px;
+            margin-bottom: 15px;
         }
         .sponsor-desc {
             font-size: 1rem;
-            opacity: 0.9;
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
+        .sponsor-cta {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #E91E63;
         }
         footer {
             text-align: center;
@@ -431,13 +437,14 @@
             </div>
         </article>
 
-        <div class="sponsor">
+        <a href="https://guard.io/" class="sponsor">
             <p class="sponsor-label">Proud Sponsor</p>
-            <p class="sponsor-name"><a href="https://guardio.io">Guardio.io</a></p>
+            <img src="https://cdn.prod.website-files.com/660aad6ed4b43a5ebeb55a52/668e39893d682dfac911db2d_guardio_logo_black_svg.svg" alt="Guardio" class="sponsor-logo">
             <p class="sponsor-desc">
-                A bootstrapped-first cybersecurity company that recently closed an $80M funding round and now protects over 500,000 paying customers worldwide. Their security engine is trusted by Lovable to verify that websites are safe and non-malicious—and they're hiring software engineers who aren't afraid to build with AI tools.
+                A bootstrapped-first cybersecurity company that recently closed an $80M funding round and now protects over 500,000 paying customers worldwide. Their security engine is trusted by Lovable to verify that websites are safe and non-malicious.
             </p>
-        </div>
+            <p class="sponsor-cta">Are you a 10x engineer? We want you!</p>
+        </a>
 
         <footer>
             <div class="footer-links">
