@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Minutes in Heaven: AI Workflows | Builders</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background-color: #2ECC71;
+            color: white;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .back-link {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .back-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        .event-badge {
+            display: inline-block;
+            background: rgba(0,0,0,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+        }
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        .event-meta {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        .event-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .description {
+            background: rgba(255,255,255,0.15);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+        }
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid rgba(255,255,255,0.3);
+        }
+        .panelist {
+            background: rgba(255,255,255,0.15);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+        .panelist:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        .panelist-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .panelist-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #C0392B;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .panelist-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        .panelist-title {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        .talk-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #F1C40F;
+            margin-bottom: 10px;
+        }
+        .talk-description {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+        .panelist-links {
+            margin-top: 15px;
+        }
+        .panelist-links a {
+            color: white;
+            text-decoration: none;
+            margin-right: 15px;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        .panelist-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        .sponsor {
+            background: rgba(255,255,255,0.15);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        .sponsor-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+        .sponsor-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .sponsor-name a {
+            color: white;
+            text-decoration: none;
+        }
+        .sponsor-name a:hover {
+            text-decoration: underline;
+        }
+        .sponsor-desc {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+            border-top: 3px solid rgba(255,255,255,0.3);
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        .lego-bar {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .lego-block {
+            width: 60px;
+            height: 40px;
+        }
+        .lego-red { background: #E74C3C; }
+        .lego-blue { background: #3498DB; }
+        .lego-yellow { background: #F1C40F; }
+        .lego-green { background: #27AE60; }
+        .lego-orange { background: #E67E22; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Back to Builders</a>
+
+        <span class="event-badge">Past Event - January 26, 2025</span>
+        <h1>7 Minutes in Heaven</h1>
+        <p class="subtitle">AI Workflows: Developers Edition</p>
+
+        <div class="event-meta">
+            <div class="event-meta-item">
+                <span>Date:</span>
+                <strong>Monday, January 26, 2025</strong>
+            </div>
+            <div class="event-meta-item">
+                <span>Time:</span>
+                <strong>20:00 - 20:30 GMT+2</strong>
+            </div>
+            <div class="event-meta-item">
+                <span>Platform:</span>
+                <strong>Zoom</strong>
+            </div>
+        </div>
+
+        <div class="description">
+            <strong>4 developers. 7 minutes each.</strong><br>
+            Screens open. No slides. Just developers building with AI.
+        </div>
+
+        <h2 class="section-title">Panelists & Showcases</h2>
+
+        <article class="panelist">
+            <div class="panelist-header">
+                <div class="panelist-avatar">H</div>
+                <div>
+                    <p class="panelist-name">Hila Shmuel</p>
+                    <p class="panelist-title">ex-Apple SWE (ML & Data Infrastructure) | Builder & Consultant | 17+ years of coding | Host of Builders</p>
+                </div>
+            </div>
+            <p class="talk-title">Processing 1,000 Tasks with Claude Code (24/7 Automation)</p>
+            <p class="talk-description">
+                Hila shows how to process 1,000 tasks in parallel using Claude Code with Ralph, letting your computer work 24/7 for you. She also demonstrates an additional flow for fixing production app issues using Sentry MCP (SEAR)—from error detection to resolution with AI in the loop.
+            </p>
+            <div class="panelist-links">
+                <a href="https://www.linkedin.com/in/hilashmuel">LinkedIn</a>
+                <a href="mailto:hila@amazing.builders">hila@amazing.builders</a>
+            </div>
+        </article>
+
+        <article class="panelist">
+            <div class="panelist-header">
+                <div class="panelist-avatar">S</div>
+                <div>
+                    <p class="panelist-name">Sam Brink</p>
+                    <p class="panelist-title">Builder | Full-Stack Developer</p>
+                </div>
+            </div>
+            <p class="talk-title">haflow: Human-Agent Orchestration Tool</p>
+            <p class="talk-description">
+                Sam presents a demo of haflow, an open-source agent orchestration tool he built designed to help developers move from vibecoding to VibeOps.
+            </p>
+            <div class="panelist-links">
+                <a href="https://www.linkedin.com/in/sambbrink/">LinkedIn</a>
+                <a href="https://sam-brink.com">sam-brink.com</a>
+            </div>
+        </article>
+
+        <article class="panelist">
+            <div class="panelist-header">
+                <div class="panelist-avatar">A</div>
+                <div>
+                    <p class="panelist-name">Aran Shinaar</p>
+                    <p class="panelist-title">CTO & Co-founder @ Cleaos | 12 years in industry, ex-Amazon</p>
+                </div>
+            </div>
+            <p class="talk-title">Managing Claude Code Across Multiple Sessions with Vibe Kanban</p>
+            <p class="talk-description">
+                Aran demonstrates how to maintain context and continuity when working with Claude Code across multiple coding sessions using Vibe Kanban—a simple yet powerful workflow system that keeps your AI-assisted development organized and on track.
+            </p>
+            <div class="panelist-links">
+                <a href="https://www.linkedin.com/in/aran-shinaar/">LinkedIn</a>
+            </div>
+        </article>
+
+        <article class="panelist">
+            <div class="panelist-header">
+                <div class="panelist-avatar">N</div>
+                <div>
+                    <p class="panelist-name">Neta Dror</p>
+                    <p class="panelist-title">Product Manager → Developer | 15+ years in product, marketing & engineering</p>
+                </div>
+            </div>
+            <p class="talk-title">1 Feature from PRD to Deployment</p>
+            <p class="talk-description">
+                Neta shows how to build a complete feature—from PRD to production including UI testing in the browser—in 7 minutes using Claude Code, and explains the difference between the terminal, CLI and web.
+            </p>
+            <div class="panelist-links">
+                <a href="https://linkedin.com/in/netadror">LinkedIn</a>
+                <a href="https://hadigitalit.com">hadigitalit.com</a>
+            </div>
+        </article>
+
+        <div class="sponsor">
+            <p class="sponsor-label">Proud Sponsor</p>
+            <p class="sponsor-name"><a href="https://guardio.io">Guardio.io</a></p>
+            <p class="sponsor-desc">
+                A bootstrapped-first cybersecurity company that recently closed an $80M funding round and now protects over 500,000 paying customers worldwide. Their security engine is trusted by Lovable to verify that websites are safe and non-malicious—and they're hiring software engineers who aren't afraid to build with AI tools.
+            </p>
+        </div>
+
+        <footer>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="https://open.spotify.com/show/65pz5mPZBIXmcPedP6ND37">Spotify</a>
+                <a href="https://www.youtube.com/@AmazingBuilders">YouTube</a>
+            </div>
+            <p>&copy; 2025 Builders</p>
+            <div class="lego-bar">
+                <span class="lego-block lego-red"></span>
+                <span class="lego-block lego-orange"></span>
+                <span class="lego-block lego-yellow"></span>
+                <span class="lego-block lego-green"></span>
+                <span class="lego-block lego-blue"></span>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
