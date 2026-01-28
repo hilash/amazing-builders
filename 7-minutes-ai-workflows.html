@@ -248,6 +248,45 @@
             font-weight: bold;
             color: #E91E63;
         }
+        .materials {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px dashed rgba(255,255,255,0.3);
+        }
+        .materials-title {
+            font-size: 0.9rem;
+            font-weight: bold;
+            opacity: 0.8;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .materials-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .material-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: white;
+            color: #333;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .material-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .material-link.github { border-left: 4px solid #333; }
+        .material-link.pdf { border-left: 4px solid #E74C3C; }
+        .material-link.tool { border-left: 4px solid #3498DB; }
+        .material-link.script { border-left: 4px solid #27AE60; }
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -383,6 +422,12 @@
                 <a href="https://twitter.com/hilashmuel">@hilashmuel</a>
                 <a href="mailto:hila@amazing.builders">hila@amazing.builders</a>
             </div>
+            <div class="materials">
+                <p class="materials-title">Materials</p>
+                <div class="materials-grid">
+                    <a href="#" class="material-link script">Bash Script (Coming Soon)</a>
+                </div>
+            </div>
         </article>
 
         <article class="panelist">
@@ -402,6 +447,13 @@
                 <a href="https://twitter.com/sambenjamin___">@sambenjamin___</a>
                 <a href="https://sam-brink.com">sam-brink.com</a>
             </div>
+            <div class="materials">
+                <p class="materials-title">Materials</p>
+                <div class="materials-grid">
+                    <a href="https://github.com/oxedom/haflow" class="material-link github">haflow Repository</a>
+                    <a href="https://github.com/oxedom/haflow/blob/main/scripts/ralph-stream.sh" class="material-link script">ralph-stream.sh</a>
+                </div>
+            </div>
         </article>
 
         <article class="panelist">
@@ -419,6 +471,13 @@
             <div class="panelist-links">
                 <a href="https://www.linkedin.com/in/aran-shinaar/">LinkedIn</a>
                 <a href="https://twitter.com/aranchikel">@aranchikel</a>
+            </div>
+            <div class="materials">
+                <p class="materials-title">Materials</p>
+                <div class="materials-grid">
+                    <a href="https://github.com/aranchikel/vibe-kanban" class="material-link github">Vibe Kanban</a>
+                    <a href="https://www.warp.dev" class="material-link tool">Warp - AI Terminal</a>
+                </div>
             </div>
         </article>
 
@@ -438,6 +497,12 @@
                 <a href="https://linkedin.com/in/netadror">LinkedIn</a>
                 <a href="https://twitter.com/netadror">@netadror</a>
                 <a href="https://hadigitalit.com">hadigitalit.com</a>
+            </div>
+            <div class="materials">
+                <p class="materials-title">Materials</p>
+                <div class="materials-grid">
+                    <a href="Demo_Step_by_Step_Guide.pdf" class="material-link pdf">Step by Step Guide (PDF)</a>
+                </div>
             </div>
         </article>
 
