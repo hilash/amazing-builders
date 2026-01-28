@@ -97,6 +97,37 @@
             margin-bottom: 30px;
             opacity: 0.95;
         }
+        .platforms {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .platforms a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: transform 0.2s;
+            padding: 8px;
+        }
+        .platforms a:hover {
+            transform: scale(1.1);
+        }
+        .platforms img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        .platforms svg {
+            width: 28px;
+            height: 28px;
+        }
         .section-title {
             font-size: 2.5rem;
             text-align: center;
@@ -227,6 +258,23 @@
             <img src="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_nologo400/43602158/43602158-1746397380772-7bfa039678f65.jpg" alt="בילדרים" class="header-img">
             <h1>בילדרים</h1>
             <p class="subtitle">פודקאסט על בוטסטראפים עם הילה שמואל</p>
+            <div class="platforms">
+                <a href="https://open.spotify.com/show/5V8HTWw2w5O3bbWjfoWhyv" title="Spotify">
+                    <img src="https://d12xoj7p9moygp.cloudfront.net/images/podcast/logo-square/006/spotify@2x.png" alt="Spotify">
+                </a>
+                <a href="https://podcasts.apple.com/us/podcast/%D7%91%D7%99%D7%9C%D7%93%D7%A8%D7%99%D7%9D/id1812355388" title="Apple Podcasts">
+                    <img src="https://d12xoj7p9moygp.cloudfront.net/images/podcast/logo-square/006/apple_podcasts@2x.png" alt="Apple Podcasts">
+                </a>
+                <a href="https://pca.st/hd7bqx4q" title="Pocket Casts">
+                    <img src="https://d12xoj7p9moygp.cloudfront.net/images/podcast/logo-square/006/pocket_casts@2x.png" alt="Pocket Casts">
+                </a>
+                <a href="https://www.youtube.com/channel/UCJBZ1ysOoV_PqxSGk7Thjaw" title="YouTube">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+                <a href="https://anchor.fm/s/1047c3378/podcast/rss" title="RSS Feed">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#E67E22"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20 5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+                </a>
+            </div>
         </header>
 
         <section class="youtube-section">
@@ -242,23 +290,6 @@
             </div>
         </section>
 
-        <section class="youtube-section">
-            <h2 class="section-title">YouTube &amp; Materials</h2>
-            <div class="youtube-grid">
-                <div class="youtube-card">
-                    <a href="https://www.youtube.com/channel/UCJBZ1ysOoV_PqxSGk7Thjaw">
-                        <h3>YouTube Channel</h3>
-                        <p>Full episodes and special content</p>
-                    </a>
-                </div>
-                <div class="youtube-card">
-                    <a href="https://creators.spotify.com/pod/profile/amazingbuilders">
-                        <h3>Spotify</h3>
-                        <p>Listen on Spotify</p>
-                    </a>
-                </div>
-            </div>
-        </section>
 
         <section>
             <h2 class="section-title">Episodes</h2>
