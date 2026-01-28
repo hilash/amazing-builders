@@ -16,10 +16,64 @@
             color: white;
             min-height: 100vh;
         }
+        .lego-sidebar {
+            position: fixed;
+            top: 0;
+            width: 60px;
+            height: 100vh;
+            z-index: 10;
+            pointer-events: none;
+            overflow: hidden;
+            background: repeating-linear-gradient(
+                to bottom,
+                #E74C3C 0px, #E74C3C 50px,
+                #F1C40F 50px, #F1C40F 110px,
+                #3498DB 110px, #3498DB 160px,
+                #27AE60 160px, #27AE60 220px,
+                #E67E22 220px, #E67E22 270px,
+                #E91E63 270px, #E91E63 340px
+            );
+        }
+        .lego-sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 15px 25px, rgba(255,255,255,0.3) 8px, transparent 8px),
+                radial-gradient(circle at 45px 25px, rgba(255,255,255,0.3) 8px, transparent 8px);
+            background-size: 60px 50px;
+        }
+        .lego-left { left: 0; }
+        .lego-right { right: 0; }
+        @media (max-width: 1100px) {
+            .lego-sidebar { width: 30px; }
+            .lego-sidebar::before {
+                background-image:
+                    radial-gradient(circle at 15px 25px, rgba(255,255,255,0.3) 5px, transparent 5px);
+                background-size: 30px 50px;
+            }
+        }
+        @media (max-width: 600px) {
+            .lego-sidebar { width: 18px; }
+            .lego-sidebar::before {
+                background-image:
+                    radial-gradient(circle at 9px 25px, rgba(255,255,255,0.3) 4px, transparent 4px);
+                background-size: 18px 50px;
+            }
+        }
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 40px 80px;
+        }
+        @media (max-width: 1100px) {
+            .container { padding: 40px 50px; }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 30px 30px; }
         }
         header {
             text-align: center;
@@ -166,6 +220,8 @@
     </style>
 </head>
 <body>
+    <div class="lego-sidebar lego-left"></div>
+    <div class="lego-sidebar lego-right"></div>
     <div class="container">
         <header>
             <img src="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_nologo400/43602158/43602158-1746397380772-7bfa039678f65.jpg" alt="בילדרים" class="header-img">
