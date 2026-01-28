@@ -143,6 +143,25 @@
             opacity: 1;
             text-decoration: underline;
         }
+        .video-section {
+            margin-bottom: 40px;
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
         .sponsor {
             background: rgba(255,255,255,0.15);
             padding: 25px;
@@ -236,6 +255,13 @@
             <strong>4 developers. 7 minutes each.</strong><br>
             Screens open. No slides. Just developers building with AI.
         </div>
+
+        <section class="video-section">
+            <h2 class="section-title">Watch the Recording</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/WT6eRdfbrrE" title="7 Minutes in Heaven: AI Workflows" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
 
         <h2 class="section-title">Panelists & Showcases</h2>
 
