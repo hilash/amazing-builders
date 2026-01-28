@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>בילדרים - פודקאסט על בוטסטראפים</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background-color: #2ECC71;
+            color: white;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+        }
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        .platforms {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .platforms a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: transform 0.2s;
+        }
+        .platforms a:hover {
+            transform: scale(1.1);
+        }
+        .hosts {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+        .host {
+            text-align: center;
+        }
+        .host-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #C0392B;
+            background: #C0392B;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+        .host-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .host-handle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        .host-handle a {
+            color: white;
+            text-decoration: none;
+        }
+        .host-handle a:hover {
+            text-decoration: underline;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid rgba(255,255,255,0.3);
+        }
+        .episodes {
+            display: grid;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+        .episode {
+            background: rgba(255,255,255,0.15);
+            padding: 25px;
+            border-radius: 15px;
+            transition: background 0.2s;
+        }
+        .episode:hover {
+            background: rgba(255,255,255,0.25);
+        }
+        .episode-number {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+        .episode-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .episode-desc {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        .episode-links {
+            margin-top: 15px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .episode-links a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        .episode-links a:hover {
+            background: rgba(0,0,0,0.3);
+        }
+        .youtube-section {
+            margin-bottom: 60px;
+        }
+        .youtube-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .youtube-card {
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .youtube-card a {
+            color: white;
+            text-decoration: none;
+        }
+        .youtube-card:hover {
+            background: rgba(255,255,255,0.25);
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 3px solid rgba(255,255,255,0.3);
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        .lego-bar {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .lego-block {
+            width: 60px;
+            height: 40px;
+            display: inline-block;
+        }
+        .lego-red { background: #E74C3C; }
+        .lego-blue { background: #3498DB; }
+        .lego-yellow { background: #F1C40F; }
+        .lego-green { background: #27AE60; }
+        .lego-orange { background: #E67E22; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>בילדרים</h1>
+            <p class="subtitle">פודקאסט על בוטסטראפים עם הילה שמואל</p>
+
+            <div class="platforms">
+                <a href="https://podcasts.apple.com/podcast/בילדרים/id1767893941" title="Apple Podcasts" style="color: #9B59B6;">&#9835;</a>
+                <a href="https://open.spotify.com/show/65pz5mPZBIXmcPedP6ND37" title="Spotify" style="color: #1DB954;">&#9679;</a>
+                <a href="https://www.youtube.com/@AmazingBuilders" title="YouTube" style="color: #FF0000;">&#9654;</a>
+            </div>
+        </header>
+
+        <section class="hosts">
+            <div class="host">
+                <div class="host-img">&#128105;</div>
+                <p class="host-name">Hila Shmuel</p>
+                <p class="host-handle"><a href="https://twitter.com/hilashmuel">@hilashmuel</a></p>
+            </div>
+            <div class="host">
+                <div class="host-img">&#128104;</div>
+                <p class="host-name">Aran Shinaar</p>
+                <p class="host-handle"><a href="https://twitter.com/aranchikel">@aranchikel</a></p>
+            </div>
+            <div class="host">
+                <div class="host-img">&#128105;</div>
+                <p class="host-name">Neta Dror</p>
+                <p class="host-handle"><a href="https://twitter.com/netadror">@netadror</a></p>
+            </div>
+            <div class="host">
+                <div class="host-img">&#128104;</div>
+                <p class="host-name">Sam Brink</p>
+                <p class="host-handle"><a href="https://twitter.com/sambenjamin___">@sambenjamin___</a></p>
+            </div>
+        </section>
+
+        <section class="youtube-section">
+            <h2 class="section-title">YouTube &amp; Materials</h2>
+            <div class="youtube-grid">
+                <div class="youtube-card">
+                    <a href="https://www.youtube.com/@AmazingBuilders">
+                        <h3>YouTube Channel</h3>
+                        <p>Full episodes and special content</p>
+                    </a>
+                </div>
+                <div class="youtube-card">
+                    <a href="https://open.spotify.com/show/65pz5mPZBIXmcPedP6ND37">
+                        <h3>Spotify</h3>
+                        <p>Listen on Spotify</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Episodes</h2>
+            <div class="episodes">
+                <article class="episode">
+                    <p class="episode-number">Episode 12</p>
+                    <h3 class="episode-title">אדם כהן הלל השיק את AI-key והגיע לעשרות מיליוני צפיות וסולד אווט</h3>
+                    <p class="episode-desc">Adam Cohen Hillel launched AI-Key, achieving tens of millions of views and sold-out 200 units in two days. Discussion covers hacker house life in San Francisco, open-source philosophy, and privacy concerns in the AI era.</p>
+                    <div class="episode-links">
+                        <a href="https://open.spotify.com/show/65pz5mPZBIXmcPedP6ND37">Spotify</a>
+                    </div>
+                </article>
+
+                <article class="episode">
+                    <p class="episode-number">Episode 11</p>
+                    <h3 class="episode-title">בר ווינקלר ורועי ללזר מ-Wonderful</h3>
+                    <p class="episode-desc">Bar Winkler and Roey Lelzer discuss obsessive work ethic and competitive drive. Featured founders scaled to 60 employees and $34 million fundraising in under 8 months, beginning from Israel.</p>
+                    <div class="episode-links">
+                        <a href="https://open.spotify.com/show/65pz5mPZBIXmcPedP6ND37">Spotify</a>
+                    </div>
+                </article>
+
+                <article class="episode">
+                    <p class="episode-number">Episode 10</p>
+                    <h3 class="episode-title">איתן לויט מ-Mixtiles</h3>
+                    <p class="episode-desc">Etan Levit built a bootstrap operation into $250 million revenue company. Conversation covers physical product virality and why current times offer exceptional entrepreneurial opportunities.</p>
+                    <div class="episode-links">
+                        <a href="https://open.spotify.com/show/65pz5mPZBIXmcPedP6ND37">Spotify</a>
+                    </div>
+                </article>
+
+                <article class="episode">
+                    <p class="episode-number">Episode 9</p>
+                    <h3 class="episode-title">ים בן צבי</h3>
+                    <p class="episode-desc">Yam Ben Zvi generates $5,000 monthly without coding background by developing browser extensions, including Page Sizer tool for Google Docs resizing.</p>
+                    <div class="episode-links">
+                        <a href="https://open.spotify.com/show/65pz5mPZBIXmcPedP6ND37">Spotify</a>
+                    </div>
+                </article>
+
+                <article class="episode">
+                    <p class="episode-number">Episode 8</p>
+                    <h3 class="episode-title">איה בוכמן מ-FASHN.AI</h3>
+                    <p class="episode-desc">Aya Buchman built an AI fashion tool enabling virtual clothing try-ons, generating $30,000 monthly through bootstrap approach with no external funding.</p>
+                    <div class="episode-links">
+                        <a href="https://open.spotify.com/show/65pz5mPZBIXmcPedP6ND37">Spotify</a>
+                    </div>
+                </article>
+
+                <article class="episode">
+                    <p class="episode-number">Episode 7</p>
+                    <h3 class="episode-title">עודד בן דב</h3>
+                    <p class="episode-desc">Oded Ben Dov created AI Game Master, a text-based RPG attracting 200,000 players and generating $20,000+ monthly without paid advertising.</p>
+                    <div class="episode-links">
+                        <a href="https://open.spotify.com/show/65pz5mPZBIXmcPedP6ND37">Spotify</a>
+                    </div>
+                </article>
+
+                <article class="episode">
+                    <p class="episode-number">Episode 6</p>
+                    <h3 class="episode-title">נעמה משיח</h3>
+                    <p class="episode-desc">Naama Messiah developed Buzzy, a stress-monitoring wristband for infants, partnering with Samsung to integrate technology into Galaxy Watch 7.</p>
+                    <div class="episode-links">
+                        <a href="https://open.spotify.com/show/65pz5mPZBIXmcPedP6ND37">Spotify</a>
+                    </div>
+                </article>
+
+                <article class="episode">
+                    <p class="episode-number">Episode 5</p>
+                    <h3 class="episode-title">רחל מיסלובטי</h3>
+                    <p class="episode-desc">Rachel Mislovaty built OrganizEat, a recipe app with 30,000 paying subscribers, bootstrapped without formal tech background.</p>
+                    <div class="episode-links">
+                        <a href="https://open.spotify.com/show/65pz5mPZBIXmcPedP6ND37">Spotify</a>
+                    </div>
+                </article>
+
+                <article class="episode">
+                    <p class="episode-number">Episode 4</p>
+                    <h3 class="episode-title">יבגני פאץ</h3>
+                    <p class="episode-desc">Evgeny Fux founded three startups—VC-backed cybersecurity venture, bootstrap sold to GitLab, and current CloudQuery. Discusses trauma levels between funding models.</p>
+                    <div class="episode-links">
+                        <a href="https://open.spotify.com/show/65pz5mPZBIXmcPedP6ND37">Spotify</a>
+                    </div>
+                </article>
+
+                <article class="episode">
+                    <p class="episode-number">Episode 3</p>
+                    <h3 class="episode-title">טל קולנדר</h3>
+                    <p class="episode-desc">Tal Kolander built GYTPOL cybersecurity company generating $10+ million annually through bootstrap approach, never raising VC funding.</p>
+                    <div class="episode-links">
+                        <a href="https://open.spotify.com/show/65pz5mPZBIXmcPedP6ND37">Spotify</a>
+                    </div>
+                </article>
+
+                <article class="episode">
+                    <p class="episode-number">Episode 2</p>
+                    <h3 class="episode-title">ירון אינגר מ-Lightricks</h3>
+                    <p class="episode-desc">Yaron Inger co-founded Lightricks as bootstrap operation reaching $1.9 billion valuation. Started with 5 people in Jerusalem, raised funding after achieving $10 million revenue.</p>
+                    <div class="episode-links">
+                        <a href="https://open.spotify.com/show/65pz5mPZBIXmcPedP6ND37">Spotify</a>
+                    </div>
+                </article>
+
+                <article class="episode">
+                    <p class="episode-number">Episode 1</p>
+                    <h3 class="episode-title">רון רייטר</h3>
+                    <p class="episode-desc">Ron Reiter generates $50,000 monthly from side projects while serving as Sentra CTO. Discusses passion and meaning behind building ventures.</p>
+                    <div class="episode-links">
+                        <a href="https://open.spotify.com/show/65pz5mPZBIXmcPedP6ND37">Spotify</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-links">
+                <a href="https://open.spotify.com/show/65pz5mPZBIXmcPedP6ND37">Spotify</a>
+                <a href="https://www.youtube.com/@AmazingBuilders">YouTube</a>
+                <a href="https://podcasts.apple.com/podcast/בילדרים/id1767893941">Apple Podcasts</a>
+            </div>
+            <p>&copy; 2025 בילדרים</p>
+            <div class="lego-bar">
+                <span class="lego-block lego-red"></span>
+                <span class="lego-block lego-orange"></span>
+                <span class="lego-block lego-yellow"></span>
+                <span class="lego-block lego-green"></span>
+                <span class="lego-block lego-blue"></span>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
