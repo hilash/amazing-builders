@@ -16,17 +16,18 @@
             color: white;
             min-height: 100vh;
             line-height: 1.6;
+            position: relative;
         }
         .lego-sidebar {
-            position: fixed;
+            position: absolute;
             top: 0;
             width: 60px;
-            height: 100vh;
+            min-height: 100%;
             display: flex;
             flex-direction: column;
+            flex-wrap: wrap;
             z-index: 10;
             pointer-events: none;
-            overflow: hidden;
         }
         .lego-left { left: 0; }
         .lego-right { right: 0; }
@@ -353,6 +354,36 @@
         <div class="lego-brick brick-green"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
         <div class="lego-brick brick-orange"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
         <div class="lego-brick brick-pink"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-red"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-yellow"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-blue"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-green"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-orange"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-pink"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-red"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-yellow"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-blue"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-green"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-orange"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-pink"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-yellow"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-red"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-blue"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-green"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-orange"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-pink"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-red"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-yellow"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-blue"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-green"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-orange"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-pink"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-red"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-yellow"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-blue"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-green"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-orange"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-pink"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
     </div>
 
     <!-- Right LEGO sidebar -->
@@ -374,6 +405,35 @@
         <div class="lego-brick brick-green"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
         <div class="lego-brick brick-red"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
         <div class="lego-brick brick-yellow"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-blue"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-orange"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-green"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-red"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-pink"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-yellow"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-blue"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-orange"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-red"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-green"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-yellow"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-pink"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-blue"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-orange"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-green"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-red"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-yellow"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-blue"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-orange"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-green"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-red"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-pink"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-yellow"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-blue"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-orange"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-red"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-green"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-yellow"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
+        <div class="lego-brick brick-pink"><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span><span class="lego-stud"></span></div>
     </div>
 
     <div class="container">
