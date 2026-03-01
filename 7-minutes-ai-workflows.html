@@ -353,16 +353,60 @@
         .lego-yellow { background: #F1C40F; }
         .lego-green { background: #27AE60; }
         .lego-orange { background: #E67E22; }
+
+        /* Language toggle button */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 80px;
+            z-index: 100;
+            background: #27AE60;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 18px;
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: 'Fredoka', 'Nunito', sans-serif;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .lang-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+        }
+        .lang-toggle .lang-icon {
+            font-size: 1.2rem;
+        }
+        @media (max-width: 1100px) {
+            .lang-toggle { right: 45px; }
+        }
+        @media (max-width: 600px) {
+            .lang-toggle {
+                right: 25px;
+                padding: 8px 14px;
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body>
+    <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">
+        <span class="lang-icon">🌐</span>
+        <span id="langLabel">עברית</span>
+    </button>
+
     <!-- Left LEGO sidebar -->
     <div class="lego-sidebar lego-left"></div>
     <!-- Right LEGO sidebar -->
     <div class="lego-sidebar lego-right"></div>
 
     <div class="container">
-        <a href="index.html" class="back-link">&larr; Back to Builders</a>
+        <a href="index.html" class="back-link" data-i18n="back">&larr; Back to Builders</a>
 
         <img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,background=white,quality=75,width=400,height=400/event-covers/wy/973452d5-c54a-4157-a0d7-ba7644ea0453.png" alt="7 Minutes in Heaven: AI Workflows" class="event-image">
 
@@ -511,11 +555,11 @@
 
         <footer>
             <div class="footer-links">
-                <a href="index.html">Home</a>
+                <a href="index.html" data-i18n="home">Home</a>
                 <a href="https://creators.spotify.com/pod/profile/amazingbuilders">Spotify</a>
                 <a href="https://www.youtube.com/channel/UCJBZ1ysOoV_PqxSGk7Thjaw">YouTube</a>
             </div>
-            <p>&copy; 2026 Builders</p>
+            <p data-i18n="copyright">&copy; 2026 Builders</p>
             <div class="lego-bar">
                 <span class="lego-block lego-red"></span>
                 <span class="lego-block lego-orange"></span>
@@ -525,5 +569,61 @@
             </div>
         </footer>
     </div>
+
+    <script>
+    var translations = {
+        en: {
+            back: "\u2190 Back to Builders",
+            home: "Home",
+            copyright: "\u00A9 2026 Builders"
+        },
+        he: {
+            back: "\u2190 \u05D7\u05D6\u05E8\u05D4 \u05DC\u05D1\u05D9\u05DC\u05D3\u05E8\u05D9\u05DD",
+            home: "\u05D3\u05E3 \u05D4\u05D1\u05D9\u05EA",
+            copyright: "\u00A9 2026 \u05D1\u05D9\u05DC\u05D3\u05E8\u05D9\u05DD"
+        }
+    };
+
+    function detectLanguage() {
+        var saved = localStorage.getItem('builders-lang');
+        if (saved === 'he' || saved === 'en') return saved;
+        try {
+            var tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            if (tz === 'Asia/Jerusalem') return 'he';
+        } catch(e) {}
+        var langs = navigator.languages || [navigator.language || navigator.userLanguage || ''];
+        for (var i = 0; i < langs.length; i++) {
+            if (langs[i].substring(0, 2) === 'he') return 'he';
+        }
+        return 'en';
+    }
+
+    function applyLanguage(lang) {
+        var t = translations[lang];
+        if (!t) return;
+        var elements = document.querySelectorAll('[data-i18n]');
+        for (var i = 0; i < elements.length; i++) {
+            var key = elements[i].getAttribute('data-i18n');
+            if (t[key] !== undefined) {
+                elements[i].textContent = t[key];
+            }
+        }
+        var label = document.getElementById('langLabel');
+        if (label) {
+            label.textContent = lang === 'he' ? 'English' : '\u05E2\u05D1\u05E8\u05D9\u05EA';
+        }
+        localStorage.setItem('builders-lang', lang);
+        document.documentElement.setAttribute('data-lang', lang);
+    }
+
+    function toggleLanguage() {
+        var current = document.documentElement.getAttribute('data-lang') || 'en';
+        applyLanguage(current === 'he' ? 'en' : 'he');
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        applyLanguage(detectLanguage());
+    });
+    </script>
 </body>
 </html>

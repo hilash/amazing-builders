@@ -101,6 +101,14 @@
             margin-bottom: 30px;
             opacity: 0.95;
         }
+        .name-link {
+            color: white;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+        .name-link:hover {
+            opacity: 0.85;
+        }
         .platforms {
             display: flex;
             justify-content: center;
@@ -240,16 +248,64 @@
         .lego-yellow { background: #F1C40F; }
         .lego-green { background: #27AE60; }
         .lego-orange { background: #E67E22; }
+
+        /* Language toggle button */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            z-index: 100;
+            background: #27AE60;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 18px;
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: 'Fredoka', 'Nunito', sans-serif;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .lang-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+        }
+        .lang-toggle .lang-icon {
+            font-size: 1.2rem;
+        }
+        /* Position based on direction */
+        html[dir="rtl"] .lang-toggle { left: 80px; }
+        html[dir="ltr"] .lang-toggle { right: 80px; }
+        @media (max-width: 1100px) {
+            html[dir="rtl"] .lang-toggle { left: 45px; }
+            html[dir="ltr"] .lang-toggle { right: 45px; }
+        }
+        @media (max-width: 600px) {
+            html[dir="rtl"] .lang-toggle { left: 25px; }
+            html[dir="ltr"] .lang-toggle { right: 25px; }
+            .lang-toggle {
+                padding: 8px 14px;
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body>
+    <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">
+        <span class="lang-icon">🌐</span>
+        <span id="langLabel">English</span>
+    </button>
+
     <div class="lego-sidebar lego-left"></div>
     <div class="lego-sidebar lego-right"></div>
     <div class="container">
         <header>
             <img src="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_nologo400/43602158/43602158-1746397380772-7bfa039678f65.jpg" alt="בילדרים" class="header-img">
-            <h1>בילדרים</h1>
-            <p class="subtitle">פודקאסט על בוטסטראפים עם הילה שמואל</p>
+            <h1 data-i18n="title">בילדרים</h1>
+            <p class="subtitle"><span data-i18n="subtitle_prefix">פודקאסט על בוטסטראפים עם </span><a href="https://www.linkedin.com/in/hilashmuel/" class="name-link" target="_blank" rel="noopener noreferrer" data-i18n="subtitle_name">הילה שמואל</a></p>
             <div class="platforms">
                 <a href="https://open.spotify.com/show/5V8HTWw2w5O3bbWjfoWhyv" title="Spotify">
                     <img src="https://d12xoj7p9moygp.cloudfront.net/images/podcast/logo-square/006/spotify@2x.png" alt="Spotify">
@@ -270,13 +326,13 @@
         </header>
 
         <section class="youtube-section">
-            <h2 class="section-title">Events</h2>
+            <h2 class="section-title" data-i18n="events">Events</h2>
             <div class="youtube-grid">
                 <div class="youtube-card event-card">
                     <a href="7-minutes-ai-workflows.html">
                         <img src="images/7minutes.jpeg" alt="7 Minutes in Heaven: AI Workflows" class="event-img">
-                        <h3>7 Minutes in Heaven: AI Workflows</h3>
-                        <p>Jan 26, 2025 | 4 developers. 7 minutes each. Just building with AI.</p>
+                        <h3 data-i18n="event1_title">7 Minutes in Heaven: AI Workflows</h3>
+                        <p data-i18n="event1_desc">Jan 26, 2025 | 4 developers. 7 minutes each. Just building with AI.</p>
                     </a>
                 </div>
             </div>
@@ -284,123 +340,123 @@
 
 
         <section>
-            <h2 class="section-title">Episodes</h2>
+            <h2 class="section-title" data-i18n="episodes">Episodes</h2>
             <div class="episodes">
                 <article class="episode">
-                    <p class="episode-number">Episode 12</p>
-                    <h3 class="episode-title">אדם כהן הלל השיק את AI-key והגיע לעשרות מיליוני צפיות וסולד אווט, חולם על העתיד של הבינה המלאכותית וחברה של טריליון דולר</h3>
+                    <p class="episode-number" data-i18n="ep12_num">Episode 12</p>
+                    <h3 class="episode-title" data-i18n="ep12_title">אדם כהן הלל השיק את AI-key והגיע לעשרות מיליוני צפיות וסולד אווט, חולם על העתיד של הבינה המלאכותית וחברה של טריליון דולר</h3>
                     <p class="episode-meta">Nov 10, 2025 | 51:45</p>
-                    <p class="episode-desc">אדם כהן הילל השיק את AI-Key והגיע לעשרות מיליוני צפיות בטוויטר, עד שסם אלטמן עצמו שיתף. התוצאות? סולד אאוט של 200 יחידות ביומיים הראשונים, ועוד 4,000 איש ברשימת המתנה. דיברנו על החיים בהאקר האוס בסן פרנסיסקו, למה הוא מאמין באופן סורס, החזון שלו על עתיד הפרטיות והבינה המלאכותית - למה המידע האישי שלך בענן לא באמת שלך.</p>
+                    <p class="episode-desc" data-i18n="ep12_desc">אדם כהן הילל השיק את AI-Key והגיע לעשרות מיליוני צפיות בטוויטר, עד שסם אלטמן עצמו שיתף. התוצאות? סולד אאוט של 200 יחידות ביומיים הראשונים, ועוד 4,000 איש ברשימת המתנה. דיברנו על החיים בהאקר האוס בסן פרנסיסקו, למה הוא מאמין באופן סורס, החזון שלו על עתיד הפרטיות והבינה המלאכותית - למה המידע האישי שלך בענן לא באמת שלך.</p>
                     <div class="episode-player">
                         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/35o1FbnRDABEDOqYLyBw8D?si=Jt4vhOsKSj-Nd1Z8RTBTVg" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                     </div>
                 </article>
 
                 <article class="episode">
-                    <p class="episode-number">Episode 11</p>
-                    <h3 class="episode-title">בר ווינקלר ורועי ללזר מ-Wonderful - We like winning. Not competing.</h3>
+                    <p class="episode-number" data-i18n="ep11_num">Episode 11</p>
+                    <h3 class="episode-title" data-i18n="ep11_title">בר ווינקלר ורועי ללזר מ-Wonderful - We like winning. Not competing.</h3>
                     <p class="episode-meta">Aug 26, 2025 | 57:10</p>
-                    <p class="episode-desc">אובססיה. ״זה סיוט להתחרות במישהו אובססיבי שעובד 14 שעות ביום. אנחנו לא מתרצים, לא מסתובבים בעולם בהרגשה שאנחנו הכי טובים. פשוט עובדים יותר קשה ורוצים את זה יותר מכולם.״ בר ייסד ומכר את 12Buy ואת Approve.com, ורועי ייסד את Kaps. תוך פחות מ8 חודשים - 60 עובדים, 34 מיליון דולר גיוס.</p>
+                    <p class="episode-desc" data-i18n="ep11_desc">אובססיה. ״זה סיוט להתחרות במישהו אובססיבי שעובד 14 שעות ביום. אנחנו לא מתרצים, לא מסתובבים בעולם בהרגשה שאנחנו הכי טובים. פשוט עובדים יותר קשה ורוצים את זה יותר מכולם.״ בר ייסד ומכר את 12Buy ואת Approve.com, ורועי ייסד את Kaps. תוך פחות מ8 חודשים - 60 עובדים, 34 מיליון דולר גיוס.</p>
                     <div class="episode-player">
                         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/3o5dDoj8zXotbnW70DHgIr" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                     </div>
                 </article>
 
                 <article class="episode">
-                    <p class="episode-number">Episode 10</p>
-                    <h3 class="episode-title">איתן לויט מ-Mixtiles - מבוטסטראפ של 2 אנשים להכנסות של רבע מיליארד דולר</h3>
+                    <p class="episode-number" data-i18n="ep10_num">Episode 10</p>
+                    <h3 class="episode-title" data-i18n="ep10_title">איתן לויט מ-Mixtiles - מבוטסטראפ של 2 אנשים להכנסות של רבע מיליארד דולר</h3>
                     <p class="episode-meta">Aug 12, 2025 | 44:47</p>
-                    <p class="episode-desc">איתן, ממקימי MixTiles, בנה יחד עם שותפו דוד כץ אימפריה של מוצרים פיזיים מעוררי השראה לבית שהגיעה להכנסות של 250 מיליון דולר, כשהכול התחיל כסטארטאפ בוטסטראפ בלי עובדים. מה הופך מוצר פיזי לוויראלי, ולמה לדעתו אנחנו בתקופה הכי מרגשת בהיסטוריה ליזמים.</p>
+                    <p class="episode-desc" data-i18n="ep10_desc">איתן, ממקימי MixTiles, בנה יחד עם שותפו דוד כץ אימפריה של מוצרים פיזיים מעוררי השראה לבית שהגיעה להכנסות של 250 מיליון דולר, כשהכול התחיל כסטארטאפ בוטסטראפ בלי עובדים. מה הופך מוצר פיזי לוויראלי, ולמה לדעתו אנחנו בתקופה הכי מרגשת בהיסטוריה ליזמים.</p>
                     <div class="episode-player">
                         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6hj4KjyD2HtxwSi5FiKNFv" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                     </div>
                 </article>
 
                 <article class="episode">
-                    <p class="episode-number">Episode 9</p>
-                    <h3 class="episode-title">ים בן צבי על איך עושים $5K בחודש בלי לדעת לתכנת</h3>
+                    <p class="episode-number" data-i18n="ep9_num">Episode 9</p>
+                    <h3 class="episode-title" data-i18n="ep9_title">ים בן צבי על איך עושים $5K בחודש בלי לדעת לתכנת</h3>
                     <p class="episode-meta">Jul 17, 2025 | 52:00</p>
-                    <p class="episode-desc">סוף סוף הוא הגיע - מישהו שלא היה ב-8200 ומצליח לעשות 5 אלף דולר בחודש בלי לדעת לתכנת! ים מספר איך הוא נקלע לפיתוח של תוספים לדפדפן, ופיתח את Page Sizer, תוסף בשביל לשנות את גודל הדף בגוגל דוקס, שמניב לו את מרב ההכנסות.</p>
+                    <p class="episode-desc" data-i18n="ep9_desc">סוף סוף הוא הגיע - מישהו שלא היה ב-8200 ומצליח לעשות 5 אלף דולר בחודש בלי לדעת לתכנת! ים מספר איך הוא נקלע לפיתוח של תוספים לדפדפן, ופיתח את Page Sizer, תוסף בשביל לשנות את גודל הדף בגוגל דוקס, שמניב לו את מרב ההכנסות.</p>
                     <div class="episode-player">
                         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1U4UvpwRCOc0Nh0VuKdzJM" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                     </div>
                 </article>
 
                 <article class="episode">
-                    <p class="episode-number">Episode 8</p>
-                    <h3 class="episode-title">איה בוכמן היא בילדרית של FASHN.AI בוטסטראפ שמלביש אנשים אונליין ומכניס $30K בחודש</h3>
+                    <p class="episode-number" data-i18n="ep8_num">Episode 8</p>
+                    <h3 class="episode-title" data-i18n="ep8_title">איה בוכמן היא בילדרית של FASHN.AI בוטסטראפ שמלביש אנשים אונליין ומכניס $30K בחודש</h3>
                     <p class="episode-meta">Jul 07, 2025 | 47:03</p>
-                    <p class="episode-desc">איך בונים סטארטאפ של AI בלי קשרים, בלי מימון חיצוני ובלי לדעת אם זה יעבוד? איה לקחה את ה-AI, את האהבה שלה לאופנה, ובנו טכנולוגיה מהסרטים: אתה מעלה תמונה של בגד + תמונה של בן אדם והבגד פשוט נלבש עליו כאילו צולם באמת.</p>
+                    <p class="episode-desc" data-i18n="ep8_desc">איך בונים סטארטאפ של AI בלי קשרים, בלי מימון חיצוני ובלי לדעת אם זה יעבוד? איה לקחה את ה-AI, את האהבה שלה לאופנה, ובנו טכנולוגיה מהסרטים: אתה מעלה תמונה של בגד + תמונה של בן אדם והבגד פשוט נלבש עליו כאילו צולם באמת.</p>
                     <div class="episode-player">
                         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/3hF7pPgxBFHyjI17PdvbHL" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                     </div>
                 </article>
 
                 <article class="episode">
-                    <p class="episode-number">Episode 7</p>
-                    <h3 class="episode-title">עודד בן דב על איך לבנות משחק AI Game Master שמכניס $20K בחודש</h3>
+                    <p class="episode-number" data-i18n="ep7_num">Episode 7</p>
+                    <h3 class="episode-title" data-i18n="ep7_title">עודד בן דב על איך לבנות משחק AI Game Master שמכניס $20K בחודש</h3>
                     <p class="episode-meta">Jun 09, 2025 | 1:11:38</p>
-                    <p class="episode-desc">עודד בן דב בנה את AI Game Master – משחק תפקידים מבוסס AI שכבש כמעט 200 אלף שחקנים, עם קהילה, דירוגים מעולים, והכנסות של מעל 20,000 דולר בחודש – והכול בלי לשים שקל על פרסום. איך עושים ולידציה למוצר, ואיך מגיעים למשתמשים משלמים בלי לשלם על שיווק.</p>
+                    <p class="episode-desc" data-i18n="ep7_desc">עודד בן דב בנה את AI Game Master – משחק תפקידים מבוסס AI שכבש כמעט 200 אלף שחקנים, עם קהילה, דירוגים מעולים, והכנסות של מעל 20,000 דולר בחודש – והכול בלי לשים שקל על פרסום. איך עושים ולידציה למוצר, ואיך מגיעים למשתמשים משלמים בלי לשלם על שיווק.</p>
                     <div class="episode-player">
                         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/6kPyz7zj90EjHPJTFzs1l1" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                     </div>
                 </article>
 
                 <article class="episode">
-                    <p class="episode-number">Episode 6</p>
-                    <h3 class="episode-title">נעמה משיח רצתה לפתח את Buzzy צמיד לניטור סטרס בקרב תינוקות – והגיעה לשת״פ עם סמסונג</h3>
+                    <p class="episode-number" data-i18n="ep6_num">Episode 6</p>
+                    <h3 class="episode-title" data-i18n="ep6_title">נעמה משיח רצתה לפתח את Buzzy צמיד לניטור סטרס בקרב תינוקות – והגיעה לשת״פ עם סמסונג</h3>
                     <p class="episode-meta">Jun 04, 2025 | 1:26:23</p>
-                    <p class="episode-desc">נעמה שלחה את התינוק שלה למעון בפעם הראשונה, שמה רמקול בתיק, נחרדה, והבינה שאין מצב שהיא חוזרת לשגרה. אז היא פשוט התחילה לבד. בלי לדעת לתכנת, בלי מימון חיצוני. ואז זה קרה - שיתוף פעולה עם סמסונג, לשלב את המודל שלה ב־Samsung Watch 7.</p>
+                    <p class="episode-desc" data-i18n="ep6_desc">נעמה שלחה את התינוק שלה למעון בפעם הראשונה, שמה רמקול בתיק, נחרדה, והבינה שאין מצב שהיא חוזרת לשגרה. אז היא פשוט התחילה לבד. בלי לדעת לתכנת, בלי מימון חיצוני. ואז זה קרה - שיתוף פעולה עם סמסונג, לשלב את המודל שלה ב־Samsung Watch 7.</p>
                     <div class="episode-player">
                         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/4pKQP8NoI7RA4XrIg9CnQU" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                     </div>
                 </article>
 
                 <article class="episode">
-                    <p class="episode-number">Episode 5</p>
-                    <h3 class="episode-title">רחל מיסלובטי בנתה את OrganizEat – אפליקציית מתכונים עם 30,000 יוזריות משלמות</h3>
+                    <p class="episode-number" data-i18n="ep5_num">Episode 5</p>
+                    <h3 class="episode-title" data-i18n="ep5_title">רחל מיסלובטי בנתה את OrganizEat – אפליקציית מתכונים עם 30,000 יוזריות משלמות</h3>
                     <p class="episode-meta">May 20, 2025 | 1:14:15</p>
-                    <p class="episode-desc">רחל לא תכנתה מגיל 6 ולא הייתה ב-8200. היא התחילה כפקידה בבקו"ם. אז הלםםם – אפשר לעשות בוטסראפ מצליח גם בלי להיות EX-BIGTITLE! רחל פשוט הלכה אחרי התשוקה שלה, פתחה אפליקציה בשביל עצמה ובשביל אמא שלה.</p>
+                    <p class="episode-desc" data-i18n="ep5_desc">רחל לא תכנתה מגיל 6 ולא הייתה ב-8200. היא התחילה כפקידה בבקו"ם. אז הלםםם – אפשר לעשות בוטסראפ מצליח גם בלי להיות EX-BIGTITLE! רחל פשוט הלכה אחרי התשוקה שלה, פתחה אפליקציה בשביל עצמה ובשביל אמא שלה.</p>
                     <div class="episode-player">
                         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/10ooIThCndS80wJJDlXhLV" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                     </div>
                 </article>
 
                 <article class="episode">
-                    <p class="episode-number">Episode 4</p>
-                    <h3 class="episode-title">יבגני פאץ היה פאונדר 3 פעמים: סטרטאפ VC, בוטסטראפ שנמכר ל-GITLAB ועכשיו שוב ב-VC</h3>
+                    <p class="episode-number" data-i18n="ep4_num">Episode 4</p>
+                    <h3 class="episode-title" data-i18n="ep4_title">יבגני פאץ היה פאונדר 3 פעמים: סטרטאפ VC, בוטסטראפ שנמכר ל-GITLAB ועכשיו שוב ב-VC</h3>
                     <p class="episode-meta">May 12, 2025 | 49:08</p>
-                    <p class="episode-desc">יבגני פאץ הוא פאונדר של 3 סטרטאפים. בהתחלה, סטארטאפ VC סייבר. אחר כך, בוטסטראפ שנמכר ל-GitLab. וכיום - פאונדר מייסד של CloudQuery. הוא שייך למועדון הקטן של אנשים שעשה גם וגם, ויוכל לשתף מה פחות טראומתי - VC או בוטסטראפ?</p>
+                    <p class="episode-desc" data-i18n="ep4_desc">יבגני פאץ הוא פאונדר של 3 סטרטאפים. בהתחלה, סטארטאפ VC סייבר. אחר כך, בוטסטראפ שנמכר ל-GitLab. וכיום - פאונדר מייסד של CloudQuery. הוא שייך למועדון הקטן של אנשים שעשה גם וגם, ויוכל לשתף מה פחות טראומתי - VC או בוטסטראפ?</p>
                     <div class="episode-player">
                         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/5znAxeoFumoADfeykLUrzM" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                     </div>
                 </article>
 
                 <article class="episode">
-                    <p class="episode-number">Episode 3</p>
-                    <h3 class="episode-title">טל קולנדר ה-CEO וקו-פאונדרית של GYTPOL - בוטסטראפ סייבר שמכניס מעל 10 מיליון דולר בשנה</h3>
+                    <p class="episode-number" data-i18n="ep3_num">Episode 3</p>
+                    <h3 class="episode-title" data-i18n="ep3_title">טל קולנדר ה-CEO וקו-פאונדרית של GYTPOL - בוטסטראפ סייבר שמכניס מעל 10 מיליון דולר בשנה</h3>
                     <p class="episode-meta">May 05, 2025 | 1:01:30</p>
-                    <p class="episode-desc">טל קולנדר היא מייסדת ומנכ״לית חברת הסייבר GYTPOL, חברה עם הכנסות שנתיות של מעל 10 מיליון דולר. היא בנתה בוטסטראפ סייבר בדרך לא שגרתית והפכה למטאור בתעשייה. דוגמה נדירה לאישה שהצליחה בתעשיית הסייבר - תעשייה שנשלטת בעיקר על ידי גברים.</p>
+                    <p class="episode-desc" data-i18n="ep3_desc">טל קולנדר היא מייסדת ומנכ״לית חברת הסייבר GYTPOL, חברה עם הכנסות שנתיות של מעל 10 מיליון דולר. היא בנתה בוטסטראפ סייבר בדרך לא שגרתית והפכה למטאור בתעשייה. דוגמה נדירה לאישה שהצליחה בתעשיית הסייבר - תעשייה שנשלטת בעיקר על ידי גברים.</p>
                     <div class="episode-player">
                         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/1l2AlIbRkyfVarojZrbCMH" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                     </div>
                 </article>
 
                 <article class="episode">
-                    <p class="episode-number">Episode 2</p>
-                    <h3 class="episode-title">ירון אינגר מ-Lightricks - מבוטסטראפ לחברה בשווי של כ-1.9 מיליארד דולר</h3>
+                    <p class="episode-number" data-i18n="ep2_num">Episode 2</p>
+                    <h3 class="episode-title" data-i18n="ep2_title">ירון אינגר מ-Lightricks - מבוטסטראפ לחברה בשווי של כ-1.9 מיליארד דולר</h3>
                     <p class="episode-meta">May 05, 2025 | 52:55</p>
-                    <p class="episode-desc">ירון אינגר הוא מייסד שותף ב-Lightricks, החברה מאחורי אפליקציות עריכת התמונות והוידאו המובילות בעולם. לייטרקס הייתה בוטסטראפ שהתחיל אחרי ש-5 חברים התחילו לעבוד בירושלים. רק אחרי שנתיים כשכבר היה להם הכנסות של 10 מיליון דולר, הם החליטו לגייס.</p>
+                    <p class="episode-desc" data-i18n="ep2_desc">ירון אינגר הוא מייסד שותף ב-Lightricks, החברה מאחורי אפליקציות עריכת התמונות והוידאו המובילות בעולם. לייטרקס הייתה בוטסטראפ שהתחיל אחרי ש-5 חברים התחילו לעבוד בירושלים. רק אחרי שנתיים כשכבר היה להם הכנסות של 10 מיליון דולר, הם החליטו לגייס.</p>
                     <div class="episode-player">
                         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7iPUOvCzAloZpQFRLtIZ2m" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                     </div>
                 </article>
 
                 <article class="episode">
-                    <p class="episode-number">Episode 1</p>
-                    <h3 class="episode-title">רון רייטר על איך לעשות 50,000 ש״ח בחודש מפרוייקט צד</h3>
+                    <p class="episode-number" data-i18n="ep1_num">Episode 1</p>
+                    <h3 class="episode-title" data-i18n="ep1_title">רון רייטר על איך לעשות 50,000 ש״ח בחודש מפרוייקט צד</h3>
                     <p class="episode-meta">May 05, 2025 | 58:17</p>
-                    <p class="episode-desc">רון רייטר הוא מייסד-שותף ו-CTO ב-Sentra, אחרי שכבר עשה אקזיט בעולם הסייבר. מעבר לעסקי הסייבר, רון הוא גם המייסד של learnpython.org – אתר שמלמד אנשים לתכנת, וכיום מוביל את codingforkids.io. דוגמה נדירה של יזם שהצליח בכל הזירות.</p>
+                    <p class="episode-desc" data-i18n="ep1_desc">רון רייטר הוא מייסד-שותף ו-CTO ב-Sentra, אחרי שכבר עשה אקזיט בעולם הסייבר. מעבר לעסקי הסייבר, רון הוא גם המייסד של learnpython.org – אתר שמלמד אנשים לתכנת, וכיום מוביל את codingforkids.io. דוגמה נדירה של יזם שהצליח בכל הזירות.</p>
                     <div class="episode-player">
                         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7gMck3O17jyzLuUbkR5dgM?si=cC21SBilQNOH0oJMPB0fcw" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                     </div>
@@ -414,7 +470,7 @@
                 <a href="https://www.youtube.com/channel/UCJBZ1ysOoV_PqxSGk7Thjaw">YouTube</a>
                 <a href="https://podcasts.apple.com/us/podcast/%D7%91%D7%99%D7%9C%D7%93%D7%A8%D7%99%D7%9D/id1812355388">Apple Podcasts</a>
             </div>
-            <p>&copy; 2026 בילדרים</p>
+            <p data-i18n="copyright">&copy; 2026 בילדרים</p>
             <div class="lego-bar">
                 <span class="lego-block lego-red"></span>
                 <span class="lego-block lego-orange"></span>
@@ -424,5 +480,193 @@
             </div>
         </footer>
     </div>
+
+    <script>
+    var translations = {
+        en: {
+            title: "Builders",
+            subtitle_prefix: "A podcast about bootstrapping with ",
+            subtitle_name: "Hila Shmuel",
+            events: "Events",
+            event1_title: "7 Minutes in Heaven: AI Workflows",
+            event1_desc: "Jan 26, 2025 | 4 developers. 7 minutes each. Just building with AI.",
+            episodes: "Episodes",
+            copyright: "\u00A9 2026 Builders",
+
+            ep12_num: "Episode 12",
+            ep12_title: "Adam Cohen Hillel launched AI-Key, reached tens of millions of views and sold out, dreaming of the future of AI and a trillion-dollar company",
+            ep12_desc: "Adam Cohen Hillel launched AI-Key and reached tens of millions of views on Twitter, until Sam Altman himself shared it. The results? A sellout of 200 units in the first two days, plus 4,000 more on the waitlist. We talked about life in a hacker house in San Francisco, why he believes in open source, and his vision for the future of privacy and AI \u2014 why your personal data in the cloud isn\u2019t really yours.",
+
+            ep11_num: "Episode 11",
+            ep11_title: "Bar Winkler and Roi Lalzar from Wonderful \u2014 We like winning. Not competing.",
+            ep11_desc: "Obsession. \u201CIt\u2019s a nightmare to compete with someone obsessive who works 14 hours a day. We don\u2019t make excuses, we don\u2019t walk around feeling like we\u2019re the best. We just work harder and want it more than everyone.\u201D Bar founded and sold 12Buy and Approve.com, and Roi founded Kaps. In less than 8 months \u2014 60 employees, $34 million raised.",
+
+            ep10_num: "Episode 10",
+            ep10_title: "Eitan Lovit from Mixtiles \u2014 From a 2-person bootstrap to revenues of a quarter billion dollars",
+            ep10_desc: "Eitan, co-founder of MixTiles, built together with his partner David Katz an empire of inspiring physical products for the home that reached $250 million in revenue, starting as a bootstrapped startup with no employees. What makes a physical product go viral, and why he thinks we\u2019re in the most exciting era in history for entrepreneurs.",
+
+            ep9_num: "Episode 9",
+            ep9_title: "Yam Ben Zvi on how to make $5K a month without knowing how to code",
+            ep9_desc: "Finally \u2014 someone who wasn\u2019t in Unit 8200 and manages to make $5,000 a month without knowing how to code! Yam shares how he got into building browser extensions and created Page Sizer, an extension for resizing pages in Google Docs, which generates most of his revenue.",
+
+            ep8_num: "Episode 8",
+            ep8_title: "Aya Buchman is the builder of FASHN.AI \u2014 a bootstrap that dresses people online and makes $30K a month",
+            ep8_desc: "How do you build an AI startup without connections, without external funding, and without knowing if it\u2019ll work? Aya took AI, her love for fashion, and built movie-like technology: upload a photo of a garment + a photo of a person, and the garment appears on them as if it were actually photographed.",
+
+            ep7_num: "Episode 7",
+            ep7_title: "Oded Ben Dov on how to build AI Game Master \u2014 a game making $20K a month",
+            ep7_desc: "Oded Ben Dov built AI Game Master \u2014 an AI-based role-playing game that conquered nearly 200,000 players, with a community, excellent ratings, and revenues over $20,000 a month \u2014 all without spending a dime on advertising. How to validate a product, and how to reach paying users without paying for marketing.",
+
+            ep6_num: "Episode 6",
+            ep6_title: "Naama Mashiach wanted to develop Buzzy \u2014 a stress monitoring bracelet for infants \u2014 and landed a partnership with Samsung",
+            ep6_desc: "Naama sent her baby to daycare for the first time, put a speaker in the bag, was horrified, and realized there was no way she was going back to routine. So she just started alone. Without knowing how to code, without external funding. And then it happened \u2014 a partnership with Samsung, integrating her model into Samsung Watch 7.",
+
+            ep5_num: "Episode 5",
+            ep5_title: "Rachel Mislovaty built OrganizEat \u2014 a recipe app with 30,000 paying users",
+            ep5_desc: "Rachel didn\u2019t code since age 6 and wasn\u2019t in Unit 8200. She started as a clerk in the IDF. So yes \u2014 you can build a successful bootstrap without being EX-BIGTITLE! Rachel just followed her passion and built an app for herself and her mom.",
+
+            ep4_num: "Episode 4",
+            ep4_title: "Yevgeni Patt was a founder 3 times: a VC startup, a bootstrap sold to GitLab, and now back in VC",
+            ep4_desc: "Yevgeni Patt is a founder of 3 startups. First, a VC-backed cyber startup. Then, a bootstrap sold to GitLab. And now \u2014 founding CloudQuery. He belongs to the small club of people who\u2019ve done both, and can share which is less traumatic \u2014 VC or bootstrap?",
+
+            ep3_num: "Episode 3",
+            ep3_title: "Tal Kolander, CEO and Co-founder of GYTPOL \u2014 a cyber bootstrap making over $10 million a year",
+            ep3_desc: "Tal Kolander is the founder and CEO of cybersecurity company GYTPOL, with annual revenues over $10 million. She built a cyber bootstrap in an unconventional way and became a meteor in the industry. A rare example of a woman who succeeded in cybersecurity \u2014 an industry dominated mainly by men.",
+
+            ep2_num: "Episode 2",
+            ep2_title: "Yaron Inger from Lightricks \u2014 From bootstrap to a company valued at ~$1.9 billion",
+            ep2_desc: "Yaron Inger is a co-founder of Lightricks, the company behind the world\u2019s leading photo and video editing apps. Lightricks was a bootstrap that started when 5 friends began working in Jerusalem. Only after two years, when they already had $10 million in revenue, did they decide to raise funding.",
+
+            ep1_num: "Episode 1",
+            ep1_title: "Ron Reiter on how to make 50,000 NIS a month from a side project",
+            ep1_desc: "Ron Reiter is the co-founder and CTO of Sentra, after having already had an exit in cybersecurity. Beyond cyber, Ron is also the founder of learnpython.org \u2014 a website that teaches people to code, and currently leads codingforkids.io. A rare example of an entrepreneur who succeeded in every arena."
+        },
+        he: {
+            title: "\u05D1\u05D9\u05DC\u05D3\u05E8\u05D9\u05DD",
+            subtitle_prefix: "\u05E4\u05D5\u05D3\u05E7\u05D0\u05E1\u05D8 \u05E2\u05DC \u05D1\u05D5\u05D8\u05E1\u05D8\u05E8\u05D0\u05E4\u05D9\u05DD \u05E2\u05DD ",
+            subtitle_name: "\u05D4\u05D9\u05DC\u05D4 \u05E9\u05DE\u05D5\u05D0\u05DC",
+            events: "Events",
+            event1_title: "7 Minutes in Heaven: AI Workflows",
+            event1_desc: "Jan 26, 2025 | 4 developers. 7 minutes each. Just building with AI.",
+            episodes: "Episodes",
+            copyright: "\u00A9 2026 \u05D1\u05D9\u05DC\u05D3\u05E8\u05D9\u05DD",
+
+            ep12_num: "Episode 12",
+            ep12_title: "\u05D0\u05D3\u05DD \u05DB\u05D4\u05DF \u05D4\u05DC\u05DC \u05D4\u05E9\u05D9\u05E7 \u05D0\u05EA AI-key \u05D5\u05D4\u05D2\u05D9\u05E2 \u05DC\u05E2\u05E9\u05E8\u05D5\u05EA \u05DE\u05D9\u05DC\u05D9\u05D5\u05E0\u05D9 \u05E6\u05E4\u05D9\u05D5\u05EA \u05D5\u05E1\u05D5\u05DC\u05D3 \u05D0\u05D5\u05D5\u05D8, \u05D7\u05D5\u05DC\u05DD \u05E2\u05DC \u05D4\u05E2\u05EA\u05D9\u05D3 \u05E9\u05DC \u05D4\u05D1\u05D9\u05E0\u05D4 \u05D4\u05DE\u05DC\u05D0\u05DB\u05D5\u05EA\u05D9\u05EA \u05D5\u05D7\u05D1\u05E8\u05D4 \u05E9\u05DC \u05D8\u05E8\u05D9\u05DC\u05D9\u05D5\u05DF \u05D3\u05D5\u05DC\u05E8",
+            ep12_desc: "\u05D0\u05D3\u05DD \u05DB\u05D4\u05DF \u05D4\u05D9\u05DC\u05DC \u05D4\u05E9\u05D9\u05E7 \u05D0\u05EA AI-Key \u05D5\u05D4\u05D2\u05D9\u05E2 \u05DC\u05E2\u05E9\u05E8\u05D5\u05EA \u05DE\u05D9\u05DC\u05D9\u05D5\u05E0\u05D9 \u05E6\u05E4\u05D9\u05D5\u05EA \u05D1\u05D8\u05D5\u05D5\u05D9\u05D8\u05E8, \u05E2\u05D3 \u05E9\u05E1\u05DD \u05D0\u05DC\u05D8\u05DE\u05DF \u05E2\u05E6\u05DE\u05D5 \u05E9\u05D9\u05EA\u05E3. \u05D4\u05EA\u05D5\u05E6\u05D0\u05D5\u05EA? \u05E1\u05D5\u05DC\u05D3 \u05D0\u05D0\u05D5\u05D8 \u05E9\u05DC 200 \u05D9\u05D7\u05D9\u05D3\u05D5\u05EA \u05D1\u05D9\u05D5\u05DE\u05D9\u05D9\u05DD \u05D4\u05E8\u05D0\u05E9\u05D5\u05E0\u05D9\u05DD, \u05D5\u05E2\u05D5\u05D3 4,000 \u05D0\u05D9\u05E9 \u05D1\u05E8\u05E9\u05D9\u05DE\u05EA \u05D4\u05DE\u05EA\u05E0\u05D4. \u05D3\u05D9\u05D1\u05E8\u05E0\u05D5 \u05E2\u05DC \u05D4\u05D7\u05D9\u05D9\u05DD \u05D1\u05D4\u05D0\u05E7\u05E8 \u05D4\u05D0\u05D5\u05E1 \u05D1\u05E1\u05DF \u05E4\u05E8\u05E0\u05E1\u05D9\u05E1\u05E7\u05D5, \u05DC\u05DE\u05D4 \u05D4\u05D5\u05D0 \u05DE\u05D0\u05DE\u05D9\u05DF \u05D1\u05D0\u05D5\u05E4\u05DF \u05E1\u05D5\u05E8\u05E1, \u05D4\u05D7\u05D6\u05D5\u05DF \u05E9\u05DC\u05D5 \u05E2\u05DC \u05E2\u05EA\u05D9\u05D3 \u05D4\u05E4\u05E8\u05D8\u05D9\u05D5\u05EA \u05D5\u05D4\u05D1\u05D9\u05E0\u05D4 \u05D4\u05DE\u05DC\u05D0\u05DB\u05D5\u05EA\u05D9\u05EA - \u05DC\u05DE\u05D4 \u05D4\u05DE\u05D9\u05D3\u05E2 \u05D4\u05D0\u05D9\u05E9\u05D9 \u05E9\u05DC\u05DA \u05D1\u05E2\u05E0\u05DF \u05DC\u05D0 \u05D1\u05D0\u05DE\u05EA \u05E9\u05DC\u05DA.",
+
+            ep11_num: "Episode 11",
+            ep11_title: "\u05D1\u05E8 \u05D5\u05D5\u05D9\u05E0\u05E7\u05DC\u05E8 \u05D5\u05E8\u05D5\u05E2\u05D9 \u05DC\u05DC\u05D6\u05E8 \u05DE-Wonderful - We like winning. Not competing.",
+            ep11_desc: "\u05D0\u05D5\u05D1\u05E1\u05E1\u05D9\u05D4. \u05E2\u05D6\u05D4 \u05E1\u05D9\u05D5\u05D8 \u05DC\u05D4\u05EA\u05D7\u05E8\u05D5\u05EA \u05D1\u05DE\u05D9\u05E9\u05D4\u05D5 \u05D0\u05D5\u05D1\u05E1\u05E1\u05D9\u05D1\u05D9 \u05E9\u05E2\u05D5\u05D1\u05D3 14 \u05E9\u05E2\u05D5\u05EA \u05D1\u05D9\u05D5\u05DD. \u05D0\u05E0\u05D7\u05E0\u05D5 \u05DC\u05D0 \u05DE\u05EA\u05E8\u05E6\u05D9\u05DD, \u05DC\u05D0 \u05DE\u05E1\u05EA\u05D5\u05D1\u05D1\u05D9\u05DD \u05D1\u05E2\u05D5\u05DC\u05DD \u05D1\u05D4\u05E8\u05D2\u05E9\u05D4 \u05E9\u05D0\u05E0\u05D7\u05E0\u05D5 \u05D4\u05DB\u05D9 \u05D8\u05D5\u05D1\u05D9\u05DD. \u05E4\u05E9\u05D5\u05D8 \u05E2\u05D5\u05D1\u05D3\u05D9\u05DD \u05D9\u05D5\u05EA\u05E8 \u05E7\u05E9\u05D4 \u05D5\u05E8\u05D5\u05E6\u05D9\u05DD \u05D0\u05EA \u05D6\u05D4 \u05D9\u05D5\u05EA\u05E8 \u05DE\u05DB\u05D5\u05DC\u05DD.\u05D1\u05E8 \u05D9\u05D9\u05E1\u05D3 \u05D5\u05DE\u05DB\u05E8 \u05D0\u05EA 12Buy \u05D5\u05D0\u05EA Approve.com, \u05D5\u05E8\u05D5\u05E2\u05D9 \u05D9\u05D9\u05E1\u05D3 \u05D0\u05EA Kaps. \u05EA\u05D5\u05DA \u05E4\u05D7\u05D5\u05EA \u05DE8 \u05D7\u05D5\u05D3\u05E9\u05D9\u05DD - 60 \u05E2\u05D5\u05D1\u05D3\u05D9\u05DD, 34 \u05DE\u05D9\u05DC\u05D9\u05D5\u05DF \u05D3\u05D5\u05DC\u05E8 \u05D2\u05D9\u05D5\u05E1.",
+
+            ep10_num: "Episode 10",
+            ep10_title: "\u05D0\u05D9\u05EA\u05DF \u05DC\u05D5\u05D9\u05D8 \u05DE-Mixtiles - \u05DE\u05D1\u05D5\u05D8\u05E1\u05D8\u05E8\u05D0\u05E4 \u05E9\u05DC 2 \u05D0\u05E0\u05E9\u05D9\u05DD \u05DC\u05D4\u05DB\u05E0\u05E1\u05D5\u05EA \u05E9\u05DC \u05E8\u05D1\u05E2 \u05DE\u05D9\u05DC\u05D9\u05D0\u05E8\u05D3 \u05D3\u05D5\u05DC\u05E8",
+            ep10_desc: "\u05D0\u05D9\u05EA\u05DF, \u05DE\u05DE\u05E7\u05D9\u05DE\u05D9 MixTiles, \u05D1\u05E0\u05D4 \u05D9\u05D7\u05D3 \u05E2\u05DD \u05E9\u05D5\u05EA\u05E4\u05D5 \u05D3\u05D5\u05D3 \u05DB\u05E5 \u05D0\u05D9\u05DE\u05E4\u05E8\u05D9\u05D4 \u05E9\u05DC \u05DE\u05D5\u05E6\u05E8\u05D9\u05DD \u05E4\u05D9\u05D6\u05D9\u05D9\u05DD \u05DE\u05E2\u05D5\u05E8\u05E8\u05D9 \u05D4\u05E9\u05E8\u05D0\u05D4 \u05DC\u05D1\u05D9\u05EA \u05E9\u05D4\u05D2\u05D9\u05E2\u05D4 \u05DC\u05D4\u05DB\u05E0\u05E1\u05D5\u05EA \u05E9\u05DC 250 \u05DE\u05D9\u05DC\u05D9\u05D5\u05DF \u05D3\u05D5\u05DC\u05E8, \u05DB\u05E9\u05D4\u05DB\u05D5\u05DC \u05D4\u05EA\u05D7\u05D9\u05DC \u05DB\u05E1\u05D8\u05D0\u05E8\u05D8\u05D0\u05E4 \u05D1\u05D5\u05D8\u05E1\u05D8\u05E8\u05D0\u05E4 \u05D1\u05DC\u05D9 \u05E2\u05D5\u05D1\u05D3\u05D9\u05DD. \u05DE\u05D4 \u05D4\u05D5\u05E4\u05DA \u05DE\u05D5\u05E6\u05E8 \u05E4\u05D9\u05D6\u05D9 \u05DC\u05D5\u05D5\u05D9\u05E8\u05D0\u05DC\u05D9, \u05D5\u05DC\u05DE\u05D4 \u05DC\u05D3\u05E2\u05EA\u05D5 \u05D0\u05E0\u05D7\u05E0\u05D5 \u05D1\u05EA\u05E7\u05D5\u05E4\u05D4 \u05D4\u05DB\u05D9 \u05DE\u05E8\u05D2\u05E9\u05EA \u05D1\u05D4\u05D9\u05E1\u05D8\u05D5\u05E8\u05D9\u05D4 \u05DC\u05D9\u05D6\u05DE\u05D9\u05DD.",
+
+            ep9_num: "Episode 9",
+            ep9_title: "\u05D9\u05DD \u05D1\u05DF \u05E6\u05D1\u05D9 \u05E2\u05DC \u05D0\u05D9\u05DA \u05E2\u05D5\u05E9\u05D9\u05DD $5K \u05D1\u05D7\u05D5\u05D3\u05E9 \u05D1\u05DC\u05D9 \u05DC\u05D3\u05E2\u05EA \u05DC\u05EA\u05DB\u05E0\u05EA",
+            ep9_desc: "\u05E1\u05D5\u05E3 \u05E1\u05D5\u05E3 \u05D4\u05D5\u05D0 \u05D4\u05D2\u05D9\u05E2 - \u05DE\u05D9\u05E9\u05D4\u05D5 \u05E9\u05DC\u05D0 \u05D4\u05D9\u05D4 \u05D1-8200 \u05D5\u05DE\u05E6\u05DC\u05D9\u05D7 \u05DC\u05E2\u05E9\u05D5\u05EA 5 \u05D0\u05DC\u05E3 \u05D3\u05D5\u05DC\u05E8 \u05D1\u05D7\u05D5\u05D3\u05E9 \u05D1\u05DC\u05D9 \u05DC\u05D3\u05E2\u05EA \u05DC\u05EA\u05DB\u05E0\u05EA! \u05D9\u05DD \u05DE\u05E1\u05E4\u05E8 \u05D0\u05D9\u05DA \u05D4\u05D5\u05D0 \u05E0\u05E7\u05DC\u05E2 \u05DC\u05E4\u05D9\u05EA\u05D5\u05D7 \u05E9\u05DC \u05EA\u05D5\u05E1\u05E4\u05D9\u05DD \u05DC\u05D3\u05E4\u05D3\u05E4\u05DF, \u05D5\u05E4\u05D9\u05EA\u05D7 \u05D0\u05EA Page Sizer, \u05EA\u05D5\u05E1\u05E3 \u05D1\u05E9\u05D1\u05D9\u05DC \u05DC\u05E9\u05E0\u05D5\u05EA \u05D0\u05EA \u05D2\u05D5\u05D3\u05DC \u05D4\u05D3\u05E3 \u05D1\u05D2\u05D5\u05D2\u05DC \u05D3\u05D5\u05E7\u05E1, \u05E9\u05DE\u05E0\u05D9\u05D1 \u05DC\u05D5 \u05D0\u05EA \u05DE\u05E8\u05D1 \u05D4\u05D4\u05DB\u05E0\u05E1\u05D5\u05EA.",
+
+            ep8_num: "Episode 8",
+            ep8_title: "\u05D0\u05D9\u05D4 \u05D1\u05D5\u05DB\u05DE\u05DF \u05D4\u05D9\u05D0 \u05D1\u05D9\u05DC\u05D3\u05E8\u05D9\u05EA \u05E9\u05DC FASHN.AI \u05D1\u05D5\u05D8\u05E1\u05D8\u05E8\u05D0\u05E4 \u05E9\u05DE\u05DC\u05D1\u05D9\u05E9 \u05D0\u05E0\u05E9\u05D9\u05DD \u05D0\u05D5\u05E0\u05DC\u05D9\u05D9\u05DF \u05D5\u05DE\u05DB\u05E0\u05D9\u05E1 $30K \u05D1\u05D7\u05D5\u05D3\u05E9",
+            ep8_desc: "\u05D0\u05D9\u05DA \u05D1\u05D5\u05E0\u05D9\u05DD \u05E1\u05D8\u05D0\u05E8\u05D8\u05D0\u05E4 \u05E9\u05DC AI \u05D1\u05DC\u05D9 \u05E7\u05E9\u05E8\u05D9\u05DD, \u05D1\u05DC\u05D9 \u05DE\u05D9\u05DE\u05D5\u05DF \u05D7\u05D9\u05E6\u05D5\u05E0\u05D9 \u05D5\u05D1\u05DC\u05D9 \u05DC\u05D3\u05E2\u05EA \u05D0\u05DD \u05D6\u05D4 \u05D9\u05E2\u05D1\u05D5\u05D3? \u05D0\u05D9\u05D4 \u05DC\u05E7\u05D7\u05D4 \u05D0\u05EA \u05D4-AI, \u05D0\u05EA \u05D4\u05D0\u05D4\u05D1\u05D4 \u05E9\u05DC\u05D4 \u05DC\u05D0\u05D5\u05E4\u05E0\u05D4, \u05D5\u05D1\u05E0\u05D5 \u05D8\u05DB\u05E0\u05D5\u05DC\u05D5\u05D2\u05D9\u05D4 \u05DE\u05D4\u05E1\u05E8\u05D8\u05D9\u05DD: \u05D0\u05EA\u05D4 \u05DE\u05E2\u05DC\u05D4 \u05EA\u05DE\u05D5\u05E0\u05D4 \u05E9\u05DC \u05D1\u05D2\u05D3 + \u05EA\u05DE\u05D5\u05E0\u05D4 \u05E9\u05DC \u05D1\u05DF \u05D0\u05D3\u05DD \u05D5\u05D4\u05D1\u05D2\u05D3 \u05E4\u05E9\u05D5\u05D8 \u05E0\u05DC\u05D1\u05E9 \u05E2\u05DC\u05D9\u05D5 \u05DB\u05D0\u05D9\u05DC\u05D5 \u05E6\u05D5\u05DC\u05DD \u05D1\u05D0\u05DE\u05EA.",
+
+            ep7_num: "Episode 7",
+            ep7_title: "\u05E2\u05D5\u05D3\u05D3 \u05D1\u05DF \u05D3\u05D1 \u05E2\u05DC \u05D0\u05D9\u05DA \u05DC\u05D1\u05E0\u05D5\u05EA \u05DE\u05E9\u05D7\u05E7 AI Game Master \u05E9\u05DE\u05DB\u05E0\u05D9\u05E1 $20K \u05D1\u05D7\u05D5\u05D3\u05E9",
+            ep7_desc: "\u05E2\u05D5\u05D3\u05D3 \u05D1\u05DF \u05D3\u05D1 \u05D1\u05E0\u05D4 \u05D0\u05EA AI Game Master \u2013 \u05DE\u05E9\u05D7\u05E7 \u05EA\u05E4\u05E7\u05D9\u05D3\u05D9\u05DD \u05DE\u05D1\u05D5\u05E1\u05E1 AI \u05E9\u05DB\u05D1\u05E9 \u05DB\u05DE\u05E2\u05D8 200 \u05D0\u05DC\u05E3 \u05E9\u05D7\u05E7\u05E0\u05D9\u05DD, \u05E2\u05DD \u05E7\u05D4\u05D9\u05DC\u05D4, \u05D3\u05D9\u05E8\u05D5\u05D2\u05D9\u05DD \u05DE\u05E2\u05D5\u05DC\u05D9\u05DD, \u05D5\u05D4\u05DB\u05E0\u05E1\u05D5\u05EA \u05E9\u05DC \u05DE\u05E2\u05DC 20,000 \u05D3\u05D5\u05DC\u05E8 \u05D1\u05D7\u05D5\u05D3\u05E9 \u2013 \u05D5\u05D4\u05DB\u05D5\u05DC \u05D1\u05DC\u05D9 \u05DC\u05E9\u05D9\u05DD \u05E9\u05E7\u05DC \u05E2\u05DC \u05E4\u05E8\u05E1\u05D5\u05DD. \u05D0\u05D9\u05DA \u05E2\u05D5\u05E9\u05D9\u05DD \u05D5\u05DC\u05D9\u05D3\u05E6\u05D9\u05D4 \u05DC\u05DE\u05D5\u05E6\u05E8, \u05D5\u05D0\u05D9\u05DA \u05DE\u05D2\u05D9\u05E2\u05D9\u05DD \u05DC\u05DE\u05E9\u05EA\u05DE\u05E9\u05D9\u05DD \u05DE\u05E9\u05DC\u05DE\u05D9\u05DD \u05D1\u05DC\u05D9 \u05DC\u05E9\u05DC\u05DD \u05E2\u05DC \u05E9\u05D9\u05D5\u05D5\u05E7.",
+
+            ep6_num: "Episode 6",
+            ep6_title: "\u05E0\u05E2\u05DE\u05D4 \u05DE\u05E9\u05D9\u05D7 \u05E8\u05E6\u05EA\u05D4 \u05DC\u05E4\u05EA\u05D7 \u05D0\u05EA Buzzy \u05E6\u05DE\u05D9\u05D3 \u05DC\u05E0\u05D9\u05D8\u05D5\u05E8 \u05E1\u05D8\u05E8\u05E1 \u05D1\u05E7\u05E8\u05D1 \u05EA\u05D9\u05E0\u05D5\u05E7\u05D5\u05EA \u2013 \u05D5\u05D4\u05D2\u05D9\u05E2\u05D4 \u05DC\u05E9\u05EA\u05F4\u05E4 \u05E2\u05DD \u05E1\u05DE\u05E1\u05D5\u05E0\u05D2",
+            ep6_desc: "\u05E0\u05E2\u05DE\u05D4 \u05E9\u05DC\u05D7\u05D4 \u05D0\u05EA \u05D4\u05EA\u05D9\u05E0\u05D5\u05E7 \u05E9\u05DC\u05D4 \u05DC\u05DE\u05E2\u05D5\u05DF \u05D1\u05E4\u05E2\u05DD \u05D4\u05E8\u05D0\u05E9\u05D5\u05E0\u05D4, \u05E9\u05DE\u05D4 \u05E8\u05DE\u05E7\u05D5\u05DC \u05D1\u05EA\u05D9\u05E7, \u05E0\u05D7\u05E8\u05D3\u05D4, \u05D5\u05D4\u05D1\u05D9\u05E0\u05D4 \u05E9\u05D0\u05D9\u05DF \u05DE\u05E6\u05D1 \u05E9\u05D4\u05D9\u05D0 \u05D7\u05D5\u05D6\u05E8\u05EA \u05DC\u05E9\u05D2\u05E8\u05D4. \u05D0\u05D6 \u05D4\u05D9\u05D0 \u05E4\u05E9\u05D5\u05D8 \u05D4\u05EA\u05D7\u05D9\u05DC\u05D4 \u05DC\u05D1\u05D3. \u05D1\u05DC\u05D9 \u05DC\u05D3\u05E2\u05EA \u05DC\u05EA\u05DB\u05E0\u05EA, \u05D1\u05DC\u05D9 \u05DE\u05D9\u05DE\u05D5\u05DF \u05D7\u05D9\u05E6\u05D5\u05E0\u05D9. \u05D5\u05D0\u05D6 \u05D6\u05D4 \u05E7\u05E8\u05D4 - \u05E9\u05D9\u05EA\u05D5\u05E3 \u05E4\u05E2\u05D5\u05DC\u05D4 \u05E2\u05DD \u05E1\u05DE\u05E1\u05D5\u05E0\u05D2, \u05DC\u05E9\u05DC\u05D1 \u05D0\u05EA \u05D4\u05DE\u05D5\u05D3\u05DC \u05E9\u05DC\u05D4 \u05D1\u05BESamsung Watch 7.",
+
+            ep5_num: "Episode 5",
+            ep5_title: "\u05E8\u05D7\u05DC \u05DE\u05D9\u05E1\u05DC\u05D5\u05D1\u05D8\u05D9 \u05D1\u05E0\u05EA\u05D4 \u05D0\u05EA OrganizEat \u2013 \u05D0\u05E4\u05DC\u05D9\u05E7\u05E6\u05D9\u05D9\u05EA \u05DE\u05EA\u05DB\u05D5\u05E0\u05D9\u05DD \u05E2\u05DD 30,000 \u05D9\u05D5\u05D6\u05E8\u05D9\u05D5\u05EA \u05DE\u05E9\u05DC\u05DE\u05D5\u05EA",
+            ep5_desc: "\u05E8\u05D7\u05DC \u05DC\u05D0 \u05EA\u05DB\u05E0\u05EA\u05D4 \u05DE\u05D2\u05D9\u05DC 6 \u05D5\u05DC\u05D0 \u05D4\u05D9\u05D9\u05EA\u05D4 \u05D1-8200. \u05D4\u05D9\u05D0 \u05D4\u05EA\u05D7\u05D9\u05DC\u05D4 \u05DB\u05E4\u05E7\u05D9\u05D3\u05D4 \u05D1\u05D1\u05E7\u05D5\"\u05DD. \u05D0\u05D6 \u05D4\u05DC\u05DD\u05DD\u05DD \u2013 \u05D0\u05E4\u05E9\u05E8 \u05DC\u05E2\u05E9\u05D5\u05EA \u05D1\u05D5\u05D8\u05E1\u05E8\u05D0\u05E4 \u05DE\u05E6\u05DC\u05D9\u05D7 \u05D2\u05DD \u05D1\u05DC\u05D9 \u05DC\u05D4\u05D9\u05D5\u05EA EX-BIGTITLE! \u05E8\u05D7\u05DC \u05E4\u05E9\u05D5\u05D8 \u05D4\u05DC\u05DB\u05D4 \u05D0\u05D7\u05E8\u05D9 \u05D4\u05EA\u05E9\u05D5\u05E7\u05D4 \u05E9\u05DC\u05D4, \u05E4\u05EA\u05D7\u05D4 \u05D0\u05E4\u05DC\u05D9\u05E7\u05E6\u05D9\u05D4 \u05D1\u05E9\u05D1\u05D9\u05DC \u05E2\u05E6\u05DE\u05D4 \u05D5\u05D1\u05E9\u05D1\u05D9\u05DC \u05D0\u05DE\u05D0 \u05E9\u05DC\u05D4.",
+
+            ep4_num: "Episode 4",
+            ep4_title: "\u05D9\u05D1\u05D2\u05E0\u05D9 \u05E4\u05D0\u05E5 \u05D4\u05D9\u05D4 \u05E4\u05D0\u05D5\u05E0\u05D3\u05E8 3 \u05E4\u05E2\u05DE\u05D9\u05DD: \u05E1\u05D8\u05E8\u05D8\u05D0\u05E4 VC, \u05D1\u05D5\u05D8\u05E1\u05D8\u05E8\u05D0\u05E4 \u05E9\u05E0\u05DE\u05DB\u05E8 \u05DC-GITLAB \u05D5\u05E2\u05DB\u05E9\u05D9\u05D5 \u05E9\u05D5\u05D1 \u05D1-VC",
+            ep4_desc: "\u05D9\u05D1\u05D2\u05E0\u05D9 \u05E4\u05D0\u05E5 \u05D4\u05D5\u05D0 \u05E4\u05D0\u05D5\u05E0\u05D3\u05E8 \u05E9\u05DC 3 \u05E1\u05D8\u05E8\u05D8\u05D0\u05E4\u05D9\u05DD. \u05D1\u05D4\u05EA\u05D7\u05DC\u05D4, \u05E1\u05D8\u05D0\u05E8\u05D8\u05D0\u05E4 VC \u05E1\u05D9\u05D9\u05D1\u05E8. \u05D0\u05D7\u05E8 \u05DB\u05DA, \u05D1\u05D5\u05D8\u05E1\u05D8\u05E8\u05D0\u05E4 \u05E9\u05E0\u05DE\u05DB\u05E8 \u05DC-GitLab. \u05D5\u05DB\u05D9\u05D5\u05DD - \u05E4\u05D0\u05D5\u05E0\u05D3\u05E8 \u05DE\u05D9\u05D9\u05E1\u05D3 \u05E9\u05DC CloudQuery. \u05D4\u05D5\u05D0 \u05E9\u05D9\u05D9\u05DA \u05DC\u05DE\u05D5\u05E2\u05D3\u05D5\u05DF \u05D4\u05E7\u05D8\u05DF \u05E9\u05DC \u05D0\u05E0\u05E9\u05D9\u05DD \u05E9\u05E2\u05E9\u05D4 \u05D2\u05DD \u05D5\u05D2\u05DD, \u05D5\u05D9\u05D5\u05DB\u05DC \u05DC\u05E9\u05EA\u05E3 \u05DE\u05D4 \u05E4\u05D7\u05D5\u05EA \u05D8\u05E8\u05D0\u05D5\u05DE\u05EA\u05D9 - VC \u05D0\u05D5 \u05D1\u05D5\u05D8\u05E1\u05D8\u05E8\u05D0\u05E4?",
+
+            ep3_num: "Episode 3",
+            ep3_title: "\u05D8\u05DC \u05E7\u05D5\u05DC\u05E0\u05D3\u05E8 \u05D4-CEO \u05D5\u05E7\u05D5-\u05E4\u05D0\u05D5\u05E0\u05D3\u05E8\u05D9\u05EA \u05E9\u05DC GYTPOL - \u05D1\u05D5\u05D8\u05E1\u05D8\u05E8\u05D0\u05E4 \u05E1\u05D9\u05D9\u05D1\u05E8 \u05E9\u05DE\u05DB\u05E0\u05D9\u05E1 \u05DE\u05E2\u05DC 10 \u05DE\u05D9\u05DC\u05D9\u05D5\u05DF \u05D3\u05D5\u05DC\u05E8 \u05D1\u05E9\u05E0\u05D4",
+            ep3_desc: "\u05D8\u05DC \u05E7\u05D5\u05DC\u05E0\u05D3\u05E8 \u05D4\u05D9\u05D0 \u05DE\u05D9\u05D9\u05E1\u05D3\u05EA \u05D5\u05DE\u05E0\u05DB\u05F4\u05DC\u05D9\u05EA \u05D7\u05D1\u05E8\u05EA \u05D4\u05E1\u05D9\u05D9\u05D1\u05E8 GYTPOL, \u05D7\u05D1\u05E8\u05D4 \u05E2\u05DD \u05D4\u05DB\u05E0\u05E1\u05D5\u05EA \u05E9\u05E0\u05EA\u05D9\u05D5\u05EA \u05E9\u05DC \u05DE\u05E2\u05DC 10 \u05DE\u05D9\u05DC\u05D9\u05D5\u05DF \u05D3\u05D5\u05DC\u05E8. \u05D4\u05D9\u05D0 \u05D1\u05E0\u05EA\u05D4 \u05D1\u05D5\u05D8\u05E1\u05D8\u05E8\u05D0\u05E4 \u05E1\u05D9\u05D9\u05D1\u05E8 \u05D1\u05D3\u05E8\u05DA \u05DC\u05D0 \u05E9\u05D2\u05E8\u05EA\u05D9\u05EA \u05D5\u05D4\u05E4\u05DB\u05D4 \u05DC\u05DE\u05D8\u05D0\u05D5\u05E8 \u05D1\u05EA\u05E2\u05E9\u05D9\u05D9\u05D4. \u05D3\u05D5\u05D2\u05DE\u05D4 \u05E0\u05D3\u05D9\u05E8\u05D4 \u05DC\u05D0\u05D9\u05E9\u05D4 \u05E9\u05D4\u05E6\u05DC\u05D9\u05D7\u05D4 \u05D1\u05EA\u05E2\u05E9\u05D9\u05D9\u05EA \u05D4\u05E1\u05D9\u05D9\u05D1\u05E8 - \u05EA\u05E2\u05E9\u05D9\u05D9\u05D4 \u05E9\u05E0\u05E9\u05DC\u05D8\u05EA \u05D1\u05E2\u05D9\u05E7\u05E8 \u05E2\u05DC \u05D9\u05D3\u05D9 \u05D2\u05D1\u05E8\u05D9\u05DD.",
+
+            ep2_num: "Episode 2",
+            ep2_title: "\u05D9\u05E8\u05D5\u05DF \u05D0\u05D9\u05E0\u05D2\u05E8 \u05DE-Lightricks - \u05DE\u05D1\u05D5\u05D8\u05E1\u05D8\u05E8\u05D0\u05E4 \u05DC\u05D7\u05D1\u05E8\u05D4 \u05D1\u05E9\u05D5\u05D5\u05D9 \u05E9\u05DC \u05DB-1.9 \u05DE\u05D9\u05DC\u05D9\u05D0\u05E8\u05D3 \u05D3\u05D5\u05DC\u05E8",
+            ep2_desc: "\u05D9\u05E8\u05D5\u05DF \u05D0\u05D9\u05E0\u05D2\u05E8 \u05D4\u05D5\u05D0 \u05DE\u05D9\u05D9\u05E1\u05D3 \u05E9\u05D5\u05EA\u05E3 \u05D1-Lightricks, \u05D4\u05D7\u05D1\u05E8\u05D4 \u05DE\u05D0\u05D7\u05D5\u05E8\u05D9 \u05D0\u05E4\u05DC\u05D9\u05E7\u05E6\u05D9\u05D5\u05EA \u05E2\u05E8\u05D9\u05DB\u05EA \u05D4\u05EA\u05DE\u05D5\u05E0\u05D5\u05EA \u05D5\u05D4\u05D5\u05D9\u05D3\u05D0\u05D5 \u05D4\u05DE\u05D5\u05D1\u05D9\u05DC\u05D5\u05EA \u05D1\u05E2\u05D5\u05DC\u05DD. \u05DC\u05D9\u05D9\u05D8\u05E8\u05E7\u05E1 \u05D4\u05D9\u05D9\u05EA\u05D4 \u05D1\u05D5\u05D8\u05E1\u05D8\u05E8\u05D0\u05E4 \u05E9\u05D4\u05EA\u05D7\u05D9\u05DC \u05D0\u05D7\u05E8\u05D9 \u05E9-5 \u05D7\u05D1\u05E8\u05D9\u05DD \u05D4\u05EA\u05D7\u05D9\u05DC\u05D5 \u05DC\u05E2\u05D1\u05D5\u05D3 \u05D1\u05D9\u05E8\u05D5\u05E9\u05DC\u05D9\u05DD. \u05E8\u05E7 \u05D0\u05D7\u05E8\u05D9 \u05E9\u05E0\u05EA\u05D9\u05D9\u05DD \u05DB\u05E9\u05DB\u05D1\u05E8 \u05D4\u05D9\u05D4 \u05DC\u05D4\u05DD \u05D4\u05DB\u05E0\u05E1\u05D5\u05EA \u05E9\u05DC 10 \u05DE\u05D9\u05DC\u05D9\u05D5\u05DF \u05D3\u05D5\u05DC\u05E8, \u05D4\u05DD \u05D4\u05D7\u05DC\u05D9\u05D8\u05D5 \u05DC\u05D2\u05D9\u05D9\u05E1.",
+
+            ep1_num: "Episode 1",
+            ep1_title: "\u05E8\u05D5\u05DF \u05E8\u05D9\u05D9\u05D8\u05E8 \u05E2\u05DC \u05D0\u05D9\u05DA \u05DC\u05E2\u05E9\u05D5\u05EA 50,000 \u05E9\u05F4\u05D7 \u05D1\u05D7\u05D5\u05D3\u05E9 \u05DE\u05E4\u05E8\u05D5\u05D9\u05D9\u05E7\u05D8 \u05E6\u05D3",
+            ep1_desc: "\u05E8\u05D5\u05DF \u05E8\u05D9\u05D9\u05D8\u05E8 \u05D4\u05D5\u05D0 \u05DE\u05D9\u05D9\u05E1\u05D3-\u05E9\u05D5\u05EA\u05E3 \u05D5-CTO \u05D1-Sentra, \u05D0\u05D7\u05E8\u05D9 \u05E9\u05DB\u05D1\u05E8 \u05E2\u05E9\u05D4 \u05D0\u05E7\u05D6\u05D9\u05D8 \u05D1\u05E2\u05D5\u05DC\u05DD \u05D4\u05E1\u05D9\u05D9\u05D1\u05E8. \u05DE\u05E2\u05D1\u05E8 \u05DC\u05E2\u05E1\u05E7\u05D9 \u05D4\u05E1\u05D9\u05D9\u05D1\u05E8, \u05E8\u05D5\u05DF \u05D4\u05D5\u05D0 \u05D2\u05DD \u05D4\u05DE\u05D9\u05D9\u05E1\u05D3 \u05E9\u05DC learnpython.org \u2013 \u05D0\u05EA\u05E8 \u05E9\u05DE\u05DC\u05DE\u05D3 \u05D0\u05E0\u05E9\u05D9\u05DD \u05DC\u05EA\u05DB\u05E0\u05EA, \u05D5\u05DB\u05D9\u05D5\u05DD \u05DE\u05D5\u05D1\u05D9\u05DC \u05D0\u05EA codingforkids.io. \u05D3\u05D5\u05D2\u05DE\u05D4 \u05E0\u05D3\u05D9\u05E8\u05D4 \u05E9\u05DC \u05D9\u05D6\u05DD \u05E9\u05D4\u05E6\u05DC\u05D9\u05D7 \u05D1\u05DB\u05DC \u05D4\u05D6\u05D9\u05E8\u05D5\u05EA."
+        }
+    };
+
+    function detectLanguage() {
+        // Check localStorage first (user preference)
+        var saved = localStorage.getItem('builders-lang');
+        if (saved === 'he' || saved === 'en') return saved;
+
+        // Check timezone for Israel
+        try {
+            var tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            if (tz === 'Asia/Jerusalem') return 'he';
+        } catch(e) {}
+
+        // Check browser language for Hebrew
+        var langs = navigator.languages || [navigator.language || navigator.userLanguage || ''];
+        for (var i = 0; i < langs.length; i++) {
+            if (langs[i].substring(0, 2) === 'he') return 'he';
+        }
+
+        // Default to English
+        return 'en';
+    }
+
+    function applyLanguage(lang) {
+        var html = document.documentElement;
+        var t = translations[lang];
+        if (!t) return;
+
+        // Set direction and lang attribute
+        html.setAttribute('lang', lang === 'he' ? 'he' : 'en');
+        html.setAttribute('dir', lang === 'he' ? 'rtl' : 'ltr');
+
+        // Update page title
+        document.title = lang === 'he'
+            ? '\u05D1\u05D9\u05DC\u05D3\u05E8\u05D9\u05DD - \u05E4\u05D5\u05D3\u05E7\u05D0\u05E1\u05D8 \u05E2\u05DC \u05D1\u05D5\u05D8\u05E1\u05D8\u05E8\u05D0\u05E4\u05D9\u05DD'
+            : 'Builders - A Podcast About Bootstrapping';
+
+        // Update all translatable elements
+        var elements = document.querySelectorAll('[data-i18n]');
+        for (var i = 0; i < elements.length; i++) {
+            var key = elements[i].getAttribute('data-i18n');
+            if (t[key] !== undefined) {
+                elements[i].textContent = t[key];
+            }
+        }
+
+        // Update toggle button label
+        var label = document.getElementById('langLabel');
+        if (label) {
+            label.textContent = lang === 'he' ? 'English' : '\u05E2\u05D1\u05E8\u05D9\u05EA';
+        }
+
+        // Save preference
+        localStorage.setItem('builders-lang', lang);
+
+        // Store current language on html element for toggle
+        html.setAttribute('data-lang', lang);
+    }
+
+    function toggleLanguage() {
+        var current = document.documentElement.getAttribute('data-lang') || 'he';
+        applyLanguage(current === 'he' ? 'en' : 'he');
+    }
+
+    // Apply language on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        applyLanguage(detectLanguage());
+    });
+    </script>
 </body>
 </html>
